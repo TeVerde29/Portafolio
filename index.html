@@ -1,353 +1,385 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pedro Ricra · Full-Stack Developer — Angular, Node.js, Spring Boot</title>
-<meta name="description" content="Portafolio de Pedro Giovanni Ricra Figueroa, Ingeniería de Sistemas (IX ciclo, UNU). Desarrollo full-stack, APIs REST, bases de datos y automatización de pruebas. Pucallpa, Perú.">
-<meta property="og:title" content="Pedro Ricra · Full-Stack Developer">
-<meta property="og:description" content="Angular · Node.js · MySQL · Spring Boot · Testing y automatización. Proyectos en producción con demo en vivo.">
+<title>Pedro Giovanni Ricra Figueroa | Software Engineer</title>
+<meta name="description" content="Portafolio de Pedro Giovanni Ricra Figueroa: Ingeniería de Sistemas (IX ciclo, UNU). Full-stack Angular + Node.js + MySQL, Spring Boot, testing y automatización. Pucallpa, Perú.">
+<meta property="og:title" content="Pedro Ricra | Software Engineer">
+<meta property="og:description" content="Full-stack · APIs · Datos · Testing. Proyectos en producción con demo en vivo.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/foto.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23052630'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='800' font-size='26' fill='%23F2A71B' text-anchor='middle'%3EPR%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111A13'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='800' font-size='26' fill='%23C2D7A3' text-anchor='middle'%3EPR%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="top">
 
-<div class="preloader" id="preloader" aria-hidden="true">
-  <div class="preloader-centro">
-    <span class="preloader-sigla">PR</span>
-    <span class="preloader-pct" id="preloaderPct">0%</span>
-    <span class="preloader-barra"><i id="preloaderBar"></i></span>
-  </div>
-</div>
-
-<div class="cursor-luz" id="cursorLuz" aria-hidden="true"></div>
-
-<header class="nav" id="nav">
-  <a class="nav-marca" href="#inicio" aria-label="Pedro Ricra, inicio">
-    <span class="nav-sigla">PR</span><span class="nav-nombre">pedro<b>.ricra</b></span>
-  </a>
-  <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
-    <a href="#inicio">Quién soy</a>
-    <a href="#sobre-mi">Sobre mí</a>
-    <a href="#skills">Skills</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#experiencia">Experiencia</a>
-    <a href="#educacion">Educación</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-  <div class="nav-lado">
-    <a class="btn btn-cv" href="https://github.com/TeVerde29/CV/blob/main/CV%20-%20RFPG.docx" target="_blank" rel="noopener">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16"/></svg>
-      CV
+<!-- ══════════ NAV ══════════ -->
+<header class="nav" id="main-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#inicio" aria-label="Ir al inicio">
+      <span class="nav-logo">PR</span>
+      <span class="nav-name">Pedro Ricra<small>Software Engineer</small></span>
     </a>
-    <button class="nav-menu" id="navMenu" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
+      <a class="nav-item" data-section="inicio" href="#inicio">Inicio</a>
+      <a class="nav-item" data-section="sobre-mi" href="#sobre-mi">Sobre mí</a>
+      <a class="nav-item" data-section="stack" href="#stack">Stack</a>
+      <a class="nav-item" data-section="proyectos" href="#proyectos">Proyectos</a>
+      <a class="nav-item" data-section="experiencia" href="#experiencia">Experiencia</a>
+      <a class="nav-item" data-section="educacion" href="#educacion">Educación</a>
+      <a class="nav-item" data-section="contacto" href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-side">
+      <button class="icon-btn" id="theme-btn" aria-label="Cambiar entre tema claro y oscuro" aria-pressed="false">
+        <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
+      </button>
+      <a class="btn btn-primary btn-sm" href="https://github.com/TeVerde29/CV/blob/main/CV%20-%20RFPG.docx" target="_blank" rel="noopener">
+        <span class="material-symbols-outlined">description</span><span>CV</span>
+      </a>
+      <button class="icon-btn nav-burger" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
   </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Navegación móvil">
+    <a class="mobile-nav-link" data-section="inicio" href="#inicio">Inicio</a>
+    <a class="mobile-nav-link" data-section="sobre-mi" href="#sobre-mi">Sobre mí</a>
+    <a class="mobile-nav-link" data-section="stack" href="#stack">Stack</a>
+    <a class="mobile-nav-link" data-section="proyectos" href="#proyectos">Proyectos</a>
+    <a class="mobile-nav-link" data-section="experiencia" href="#experiencia">Experiencia</a>
+    <a class="mobile-nav-link" data-section="educacion" href="#educacion">Educación</a>
+    <a class="mobile-nav-link" data-section="contacto" href="#contacto">Contacto</a>
+  </nav>
 </header>
 
 <main>
-<!-- ═══════════ QUIÉN SOY ═══════════ -->
+<!-- ══════════ HERO ══════════ -->
 <section class="hero" id="inicio">
-  <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
-  <div class="hero-rejilla">
-    <div class="hero-texto">
-      <p class="kicker revelar">// hola, soy</p>
-      <h1 class="revelar" style="--d:.08s">Pedro Giovanni<br><span class="degradado">Ricra Figueroa</span></h1>
-      <p class="hero-rol revelar" style="--d:.16s"><span id="rolRotativo">Full-Stack Developer</span><span class="caret" aria-hidden="true">▌</span></p>
-      <p class="hero-desc revelar" style="--d:.24s">Estudiante de Ingeniería de Sistemas (IX ciclo, UNU). Construyo aplicaciones web, APIs y herramientas de escritorio que ya están en producción: del reporte de incidencias de mi universidad a sistemas de optimización logística.</p>
-      <div class="hero-ctas revelar" style="--d:.32s">
-        <a class="btn btn-solido" href="#proyectos">Ver proyectos</a>
-        <a class="btn btn-fantasma" href="#contacto">Contáctame</a>
+  <canvas class="hero-canvas" id="hero-particles" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal-item">
+      <p class="pill"><span class="dot"></span><span class="lbl">00 — Hola, soy</span></p>
+      <h1>Pedro Giovanni Ricra Figueroa</h1>
+      <p class="hero-role">Estudiante de Ingeniería de Sistemas • Full-Stack &amp; QA Automation</p>
+      <p class="hero-desc">Construyo soluciones orientadas a problemas reales: aplicaciones web escalables, arquitecturas de APIs robustas y herramientas de escritorio optimizadas.</p>
+      <p class="pill pill-box">
+        <span class="material-symbols-outlined">location_on</span>
+        <span>Pucallpa, Perú • Disponible para prácticas y proyectos profesionales</span>
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#proyectos"><span>Ver proyectos</span><span class="material-symbols-outlined shift-down">arrow_downward</span></a>
+        <a class="btn btn-secondary" href="https://github.com/TeVerde29/CV/blob/main/CV%20-%20RFPG.docx" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">description</span><span>Descargar CV</span></a>
+        <a class="btn btn-ghost" href="https://wa.me/51922149396" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">chat</span><span>WhatsApp</span></a>
       </div>
-      <div class="hero-social revelar" style="--d:.4s">
-        <a href="https://github.com/TeVerde29" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.15c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.35.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12v3.15c0 .3.21.67.8.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg></a>
-        <a href="http://www.linkedin.com/in/pedro-giovanni-ricra-figueroa-971a20433" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.55V9h3.57v11.45Z"/></svg></a>
-        <a href="mailto:pedro.ricra.figueroa@gmail.com" aria-label="Correo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
-        <a href="https://wa.me/51922149396" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.23.65-1.34 1.24-1.86 1.28-.5.05-1.13.24-3.8-.79-3.2-1.27-5.24-4.56-5.4-4.77-.16-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.63-.4.84-.4h.6c.19 0 .45-.07.7.54.26.63.88 2.17.96 2.33.08.16.13.35.02.56-.1.21-.16.34-.32.53-.16.19-.34.42-.48.56-.16.16-.33.34-.14.66.19.32.84 1.39 1.8 2.25 1.24 1.1 2.28 1.45 2.6 1.61.32.16.51.14.7-.08.19-.21.8-.93 1.01-1.25.21-.32.42-.27.7-.16.29.11 1.83.86 2.14 1.02.32.16.53.24.6.37.09.14.09.79-.14 1.44Z"/></svg></a>
+      <div class="hero-social">
+        <span class="lbl">Conectar:</span>
+        <a aria-label="GitHub" href="https://github.com/TeVerde29" target="_blank" rel="noopener"><span class="material-symbols-outlined">code</span></a>
+        <a aria-label="LinkedIn" href="http://www.linkedin.com/in/pedro-giovanni-ricra-figueroa-971a20433" target="_blank" rel="noopener"><span class="material-symbols-outlined">badge</span></a>
+        <a aria-label="Correo" href="mailto:pedro.ricra.figueroa@gmail.com"><span class="material-symbols-outlined">mail</span></a>
       </div>
-      <dl class="hero-stats revelar" style="--d:.48s">
-        <div><dt data-contar="25">0</dt><dd>funcionalidades automatizadas</dd></div>
-        <div><dt data-contar="8">0</dt><dd>módulos validados en AURA</dd></div>
-        <div><dt data-contar="12">0</dt><dd>fallos documentados con evidencia</dd></div>
-        <div><dt><span data-contar="1">0</span>.º</dt><dd>programación competitiva UNTELS</dd></div>
-      </dl>
     </div>
-    <div class="hero-foto revelar" style="--d:.3s">
-      <div class="foto-marco">
-        <img src="assets/foto.png" alt="Fotografía de Pedro Ricra">
-        <span class="foto-anillo" aria-hidden="true"></span>
-      </div>
-      <div class="foto-flotante f1"><i></i>Disponible para prácticas</div>
-      <div class="foto-flotante f2">IX ciclo · UNU</div>
-      <div class="foto-orbita" aria-hidden="true">
-        <span>Angular</span><span>Node.js</span><span>MySQL</span><span>Spring</span>
+    <div class="hero-visual reveal-item" style="transition-delay:150ms">
+      <div class="portrait" id="hero-portrait-card">
+        <img src="assets/foto.png" alt="Pedro Giovanni Ricra Figueroa">
+        <span class="badge b1"><i></i>Angular 17+</span>
+        <span class="badge b2"><i></i>Spring Boot</span>
+        <span class="badge b3"><i></i>MySQL • Electron</span>
       </div>
     </div>
   </div>
-  <a class="hero-bajar" href="#sobre-mi" aria-label="Bajar a Sobre mí"><span></span></a>
-</section>
-
-<div class="marquesina" aria-hidden="true">
-  <div class="marquesina-pista">
-    <span>Angular · Node.js · MySQL · Spring Boot · TypeScript · JavaScript · Java · Docker · Selenium · REST APIs ·&nbsp;</span>
-    <span>Angular · Node.js · MySQL · Spring Boot · TypeScript · JavaScript · Java · Docker · Selenium · REST APIs ·&nbsp;</span>
-  </div>
-</div>
-
-<!-- ═══════════ SOBRE MÍ ═══════════ -->
-<section class="seccion" id="sobre-mi">
-  <div class="contenedor">
-    <p class="kicker revelar">// sobre-mí</p>
-    <h2 class="revelar">Código que llega a <span class="degradado">usuarios reales</span></h2>
-    <div class="sobre-rejilla">
-      <div class="revelar">
-        <p>Soy estudiante de <strong>Ingeniería de Sistemas (IX ciclo)</strong> en la <strong>Universidad Nacional de Ucayali</strong>, en Pucallpa. Me muevo entre el frontend y el backend: implemento interfaces con validaciones, conecto APIs, modelo bases de datos y cierro el ciclo con pruebas.</p>
-        <p>En la OTI de la UNU aprendí el principio que repito en cada proyecto: <strong>ningún despliegue sale sin un proceso formal de testing</strong>. Documento, automatizo y re-ejecuto hasta validar cada corrección.</p>
-        <ul class="sobre-puntos">
-          <li><strong>Integración frontend–backend</strong> con validación e integridad de datos</li>
-          <li><strong>Diseño de datos</strong> desde reglamentos y procesos reales</li>
-          <li><strong>Testing formal</strong>: metodología, automatización y evidencia</li>
-          <li><strong>Scrum</strong> y trabajo orientado a resultados medibles</li>
-        </ul>
-        <a class="btn btn-solido" href="https://github.com/TeVerde29/CV/blob/main/CV%20-%20RFPG.docx" target="_blank" rel="noopener">Descargar CV</a>
-      </div>
-      <aside class="sobre-tarjeta revelar" style="--d:.15s">
-        <h3>Ficha</h3>
-        <ul>
-          <li><span>Nombre</span><strong>Pedro Giovanni Ricra Figueroa</strong></li>
-          <li><span>Ubicación</span><strong>Pucallpa, Perú (UTC−5)</strong></li>
-          <li><span>Universidad</span><strong>UNU · Ing. de Sistemas</strong></li>
-          <li><span>Enfoque</span><strong>Full-stack + QA automation</strong></li>
-          <li><span>Idiomas</span><strong>Español nativo · Inglés técnico</strong></li>
-        </ul>
-        <div class="sobre-disponible"><i></i>Respuesta en menos de 24 h</div>
-      </aside>
-    </div>
+  <div class="hero-scroll reveal-item">
+    <a href="#sobre-mi"><span class="lbl">Explorar perfil</span><span class="material-symbols-outlined bounce">keyboard_double_arrow_down</span></a>
   </div>
 </section>
 
-<!-- ═══════════ SKILLS ═══════════ -->
-<section class="seccion seccion-alt" id="skills">
-  <div class="contenedor">
-    <p class="kicker revelar">// skills</p>
-    <h2 class="revelar">Mi <span class="degradado">arsenal técnico</span></h2>
-    <p class="sub revelar">Lo que uso cada semana para construir y validar software.</p>
-    <div class="skills-rejilla">
-      <article class="skill revelar">
-        <div class="skill-icono">◧</div>
-        <h3>Frontend</h3>
-        <div class="barras">
-          <div class="barra-skill"><span>Angular</span><div class="pista"><i style="--n:88%"></i></div></div>
-          <div class="barra-skill"><span>TypeScript / JS</span><div class="pista"><i style="--n:85%"></i></div></div>
-          <div class="barra-skill"><span>HTML5 · CSS3</span><div class="pista"><i style="--n:90%"></i></div></div>
+<!-- ══════════ 01 SOBRE MÍ ══════════ -->
+<section class="band" id="sobre-mi">
+  <div class="wrap">
+    <div class="sec-head reveal-item">
+      <span class="lbl accent">01 — Sobre mí</span>
+      <h2>Ingeniería de software con vocación práctica</h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal-item">
+        <p class="lead">Estudiante de <strong>Ingeniería de Sistemas (IX ciclo)</strong> en la Universidad Nacional de Ucayali, con experiencia práctica en desarrollo de software, integración frontend–backend y automatización de pruebas.</p>
+        <p>Me interesa construir soluciones orientadas a problemas reales: desde aplicaciones web interactivas y APIs empresariales hasta herramientas de escritorio offline y algoritmos heurísticos de optimización territorial.</p>
+        <p>Actualmente enfoco mi desarrollo técnico en <strong>Angular + Node.js + MySQL</strong> y <strong>Java + Spring Boot + MySQL</strong>, integrando buenas prácticas de clean code, pruebas automatizadas en Selenium y gestión colaborativa bajo marcos ágiles (Scrum).</p>
+        <div class="counters">
+          <div class="counter reveal-item" style="transition-delay:50ms"><span class="counter-num" data-target="9" data-type="roman">0</span><span class="lbl">Ciclo en UNU</span></div>
+          <div class="counter reveal-item" style="transition-delay:120ms"><span class="counter-num" data-target="3" data-suffix="+">0</span><span class="lbl">Apps completas</span></div>
+          <div class="counter reveal-item" style="transition-delay:190ms"><span class="counter-num" data-target="25">0</span><span class="lbl">Func. automatizadas</span></div>
+          <div class="counter reveal-item" style="transition-delay:260ms"><span class="counter-num" data-target="12">0</span><span class="lbl">Fallos documentados</span></div>
         </div>
-        <p class="chips"><span>Figma</span><span>Balsamiq</span><span>Leaflet.js</span><span>Chart.js</span></p>
+      </div>
+      <div class="pillars">
+        <article class="pillar reveal-item" style="transition-delay:50ms">
+          <span class="pillar-icon material-symbols-outlined">devices</span>
+          <div><h3>Desarrollo de Software</h3><p>Aplicaciones web modernas, arquitecturas SPA y herramientas nativas de escritorio.</p></div>
+        </article>
+        <article class="pillar reveal-item" style="transition-delay:120ms">
+          <span class="pillar-icon material-symbols-outlined">database</span>
+          <div><h3>Backend &amp; Datos</h3><p>Diseño de APIs REST documentadas, modelado relacional y transacciones confiables.</p></div>
+        </article>
+        <article class="pillar reveal-item" style="transition-delay:190ms">
+          <span class="pillar-icon material-symbols-outlined">fact_check</span>
+          <div><h3>Testing &amp; Calidad</h3><p>Pruebas funcionales e integración continua con Selenium IDE y suites de pruebas.</p></div>
+        </article>
+        <article class="pillar reveal-item" style="transition-delay:260ms">
+          <span class="pillar-icon material-symbols-outlined">route</span>
+          <div><h3>Algoritmos &amp; Heurísticas</h3><p>Optimización de rutas logísticas por calle y modelos matemáticos de demanda.</p></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 02 STACK ══════════ -->
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head reveal-item">
+      <span class="lbl accent">02 — Stack &amp; habilidades</span>
+      <h2>Ecosistema técnico y herramientas</h2>
+    </div>
+    <div class="stack-banner reveal-item">
+      <span class="pillar-icon material-symbols-outlined">terminal</span>
+      <div><span class="lbl accent">Flujo de especialización</span>
+      <h3>Angular + Node.js + MySQL &nbsp;|&nbsp; Java + Spring Boot + MySQL</h3></div>
+      <p class="chips"><span>REST APIs</span><span>MVC</span><span>Clean Code</span></p>
+    </div>
+    <div class="skills-grid">
+      <article class="card reveal-item" style="transition-delay:50ms">
+        <div class="card-top"><h4>Lenguajes</h4><span class="material-symbols-outlined accent-ic">code_blocks</span></div>
+        <p>Lenguajes de programación fuertemente tipados y relacionales.</p>
+        <p class="chips"><span>Java</span><span>TypeScript</span><span>JavaScript</span><span>SQL</span><span>Python</span></p>
       </article>
-      <article class="skill revelar" style="--d:.1s">
-        <div class="skill-icono">⬡</div>
-        <h3>Backend & APIs</h3>
-        <div class="barras">
-          <div class="barra-skill"><span>Node.js · REST</span><div class="pista"><i style="--n:84%"></i></div></div>
-          <div class="barra-skill"><span>Spring Boot</span><div class="pista"><i style="--n:72%"></i></div></div>
-          <div class="barra-skill"><span>Java</span><div class="pista"><i style="--n:78%"></i></div></div>
-        </div>
-        <p class="chips"><span>Postman</span><span>Swagger UI</span><span>JWT</span></p>
+      <article class="card reveal-item" style="transition-delay:100ms">
+        <div class="card-top"><h4>Frontend &amp; UI</h4><span class="material-symbols-outlined accent-ic">web</span></div>
+        <p>Interfaces fluidas, accesibles y modulares con estándares web.</p>
+        <p class="chips"><span>Angular</span><span>HTML5</span><span>CSS3</span><span>Figma</span><span>Balsamiq</span></p>
       </article>
-      <article class="skill revelar" style="--d:.2s">
-        <div class="skill-icono">▦</div>
-        <h3>Datos</h3>
-        <div class="barras">
-          <div class="barra-skill"><span>MySQL</span><div class="pista"><i style="--n:86%"></i></div></div>
-          <div class="barra-skill"><span>SQL Server</span><div class="pista"><i style="--n:70%"></i></div></div>
-          <div class="barra-skill"><span>Modelado relacional</span><div class="pista"><i style="--n:82%"></i></div></div>
-        </div>
-        <p class="chips"><span>JSON</span><span>SheetJS</span><span>jsPDF</span></p>
+      <article class="card reveal-item" style="transition-delay:150ms">
+        <div class="card-top"><h4>Backend &amp; APIs</h4><span class="material-symbols-outlined accent-ic">dns</span></div>
+        <p>Lógica de negocio, middleware y documentación de endpoints.</p>
+        <p class="chips"><span>Node.js</span><span>Spring Boot</span><span>Postman</span><span>Swagger</span><span>JWT</span></p>
       </article>
-      <article class="skill revelar" style="--d:.3s">
-        <div class="skill-icono">⬣</div>
-        <h3>Testing & DevOps</h3>
-        <div class="barras">
-          <div class="barra-skill"><span>Selenium IDE</span><div class="pista"><i style="--n:80%"></i></div></div>
-          <div class="barra-skill"><span>Pruebas funcionales</span><div class="pista"><i style="--n:88%"></i></div></div>
-          <div class="barra-skill"><span>Git · Docker</span><div class="pista"><i style="--n:76%"></i></div></div>
-        </div>
-        <p class="chips"><span>GitHub</span><span>Colab</span><span>Electron</span><span>Scrum</span></p>
+      <article class="card reveal-item" style="transition-delay:200ms">
+        <div class="card-top"><h4>Bases de Datos</h4><span class="material-symbols-outlined accent-ic">storage</span></div>
+        <p>Diseño entidad-relación, normalización y optimización de consultas.</p>
+        <p class="chips"><span>MySQL</span><span>SQL Server</span><span>JSON</span></p>
+      </article>
+      <article class="card reveal-item" style="transition-delay:250ms">
+        <div class="card-top"><h4>Escritorio &amp; Logística</h4><span class="material-symbols-outlined accent-ic">desktop_windows</span></div>
+        <p>Herramientas offline, control FIFO e integración de modelos geográficos.</p>
+        <p class="chips"><span>Electron</span><span>Leaflet</span><span>Chart.js</span><span>Heurísticas</span></p>
+      </article>
+      <article class="card reveal-item" style="transition-delay:300ms">
+        <div class="card-top"><h4>Testing &amp; Metodologías</h4><span class="material-symbols-outlined accent-ic">verified</span></div>
+        <p>Control de versiones, contenedores, automatización QA y agilidad.</p>
+        <p class="chips"><span>Selenium</span><span>Git / GitHub</span><span>Docker</span><span>Colab</span><span>Scrum</span></p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ PROYECTOS ═══════════ -->
-<section class="seccion" id="proyectos">
-  <div class="contenedor">
-    <p class="kicker revelar">// proyectos</p>
-    <h2 class="revelar">Proyectos que puedes <span class="degradado">abrir hoy</span></h2>
-    <p class="sub revelar">Código, demo en vivo e instalador. Sin humo: entra y pruébalo.</p>
-
-    <article class="proyecto revelar">
-      <a class="proyecto-img tilt" href="https://reportes-unu.vercel.app/" target="_blank" rel="noopener" aria-label="Abrir demo de Reportes UNU">
-        <img src="assets/p-reportes.png" alt="Captura del sistema de reporte de incidencias UNU" loading="lazy">
-        <span class="proyecto-ver">Abrir demo ↗</span>
-      </a>
-      <div class="proyecto-cuerpo">
-        <p class="proyecto-tag">2025 · Web full-stack · UNU</p>
-        <h3>Sistema de reporte de incidencias del campus</h3>
-        <p class="proyecto-problema"><b>Problema:</b> la infraestructura del campus se reportaba por canales informales, sin seguimiento.</p>
-        <p><b>Solución:</b> aplicación full-stack donde el estudiante registra, consulta y edita reportes con fotografía, tipo de incidencia y ubicación. Construí el módulo del estudiante trabajando con Scrum.</p>
-        <p class="proyecto-impacto">Desplegado en Vercel y en uso por la comunidad UNU.</p>
-        <p class="chips"><span>Angular</span><span>Node.js</span><span>MySQL</span><span>Scrum</span></p>
-        <div class="proyecto-btns">
-          <a class="btn btn-solido btn-chico" href="https://reportes-unu.vercel.app/" target="_blank" rel="noopener">Demo en vivo</a>
-          <a class="btn btn-fantasma btn-chico" href="https://github.com/TeVerde29/Reportes_UNU" target="_blank" rel="noopener">Código</a>
+<!-- ══════════ 03 PROYECTOS ══════════ -->
+<section class="band" id="proyectos">
+  <div class="wrap">
+    <div class="sec-head sec-split reveal-item">
+      <div><span class="lbl accent">03 — Proyectos destacados</span>
+      <h2>Software diseñado y desplegado</h2></div>
+      <p>Sistemas completos con interfaces productivas, manejo de estado robusto y persistencia relacional.</p>
+    </div>
+    <div class="projects">
+      <article class="project reveal-item">
+        <a class="project-img" href="https://reportes-unu.vercel.app/" target="_blank" rel="noopener" aria-label="Abrir demo de Reportes UNU">
+          <img src="assets/unu-pendientes-web.png" alt="Panel de reportes pendientes del sistema Reportes UNU" loading="lazy">
+        </a>
+        <div class="project-body">
+          <p class="pill pill-mini"><span class="dot"></span>Gestión de campus universitario · 2025</p>
+          <h3>Reportes UNU</h3>
+          <p>Aplicación web para reportar y monitorear incidencias de infraestructura del campus de la Universidad Nacional de Ucayali. Panel de trabajador con pendientes, aceptados y solucionados, dashboard con KPIs y módulo del estudiante con foto, tipo y ubicación.</p>
+          <p class="chips"><span>TypeScript</span><span>Angular</span><span>Node.js</span><span>MySQL</span></p>
+          <div class="project-btns">
+            <a class="btn btn-primary btn-sm" href="https://github.com/TeVerde29/Reportes_UNU" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">terminal</span><span>Ver código</span></a>
+            <a class="btn btn-secondary btn-sm" href="https://reportes-unu.vercel.app/" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">open_in_new</span><span>Ver demo</span></a>
+          </div>
         </div>
-      </div>
-    </article>
-
-    <article class="proyecto inv revelar">
-      <a class="proyecto-img tilt" href="https://teverde29.github.io/Asignador-Heuristico-de-Redes-Logisticas/" target="_blank" rel="noopener" aria-label="Abrir demo del asignador logístico">
-        <img src="assets/p-asignador.png" alt="Captura del asignador heurístico de redes logísticas sobre mapa real" loading="lazy">
-        <span class="proyecto-ver">Abrir demo ↗</span>
-      </a>
-      <div class="proyecto-cuerpo">
-        <p class="proyecto-tag">2026 · Optimización · Mapa real</p>
-        <h3>Asignador heurístico de redes logísticas</h3>
-        <p class="proyecto-problema"><b>Problema:</b> asignar almacenes a zonas de reparto sin criterio de distancia genera costos innecesarios.</p>
-        <p><b>Solución:</b> sistema web que optimiza la asignación almacén–zona sobre un mapa real, con distancias por calle, respaldo automático ante fallos del servicio de rutas y KPIs de costo, distancia y utilización.</p>
-        <p class="proyecto-impacto">Algoritmos de optimización implementados desde cero, con visualización geográfica.</p>
-        <p class="chips"><span>JavaScript</span><span>Leaflet.js</span><span>HTML</span><span>CSS</span><span>JSON</span></p>
-        <div class="proyecto-btns">
-          <a class="btn btn-solido btn-chico" href="https://teverde29.github.io/Asignador-Heuristico-de-Redes-Logisticas/" target="_blank" rel="noopener">Demo en vivo</a>
-          <a class="btn btn-fantasma btn-chico" href="https://github.com/TeVerde29/Asignador-Heuristico-de-Redes-Logisticas" target="_blank" rel="noopener">Código</a>
+      </article>
+      <article class="project flip reveal-item">
+        <div class="project-body">
+          <p class="pill pill-mini"><span class="dot"></span>Software de almacén desktop · 2026</p>
+          <h3>RotaStock Plus</h3>
+          <p>Aplicación de escritorio offline para el ciclo completo del inventario: costeo FIFO (PEPS), semaforización de rotación, matriz ABC/XYZ, plan de compras asistido, conteos auditables, reportes en PDF y Excel, y copias de seguridad automáticas.</p>
+          <p class="chips"><span>JavaScript</span><span>Electron</span><span>Chart.js</span><span>SheetJS</span></p>
+          <div class="project-btns">
+            <a class="btn btn-primary btn-sm" href="https://github.com/TeVerde29/RotaStock-Plus" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">terminal</span><span>Ver código</span></a>
+            <a class="btn btn-secondary btn-sm" href="https://github.com/TeVerde29/RotaStock-Plus/releases/tag/v2.0.0" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">open_in_new</span><span>Instalador v2.0.0</span></a>
+          </div>
         </div>
-      </div>
-    </article>
-
-    <article class="proyecto revelar">
-      <a class="proyecto-img tilt" href="https://github.com/TeVerde29/RotaStock-Plus/releases/tag/v2.0.0" target="_blank" rel="noopener" aria-label="Descargar instalador de RotaStock Plus">
-        <img src="assets/p-rotastock.png" alt="Captura del panel de control de RotaStock Plus" loading="lazy">
-        <span class="proyecto-ver">Instalador v2.0.0 ↗</span>
-      </a>
-      <div class="proyecto-cuerpo">
-        <p class="proyecto-tag">2026 · Escritorio offline · Almacén</p>
-        <h3>RotaStock Plus — control de inventario</h3>
-        <p class="proyecto-problema"><b>Problema:</b> almacenes que operan sin conexión y sin control de rotación pierden stock y dinero.</p>
-        <p><b>Solución:</b> aplicación de escritorio offline con FIFO, semaforización de rotación, clasificación ABC/XYZ, plan de compras, conteos auditables, informes en PDF y Excel, y copias de seguridad automáticas.</p>
-        <p class="proyecto-impacto">Release v2.0.0 publicada con instalador descargable.</p>
-        <p class="chips"><span>Electron</span><span>JavaScript</span><span>Chart.js</span><span>SheetJS</span><span>jsPDF</span></p>
-        <div class="proyecto-btns">
-          <a class="btn btn-solido btn-chico" href="https://github.com/TeVerde29/RotaStock-Plus/releases/tag/v2.0.0" target="_blank" rel="noopener">Instalador</a>
-          <a class="btn btn-fantasma btn-chico" href="https://github.com/TeVerde29/RotaStock-Plus" target="_blank" rel="noopener">Código</a>
+        <a class="project-img" href="https://github.com/TeVerde29/RotaStock-Plus/releases/tag/v2.0.0" target="_blank" rel="noopener" aria-label="Descargar instalador de RotaStock Plus">
+          <img src="assets/rota-panel.png" alt="Panel de control de RotaStock Plus con KPIs y gráficos" loading="lazy">
+        </a>
+      </article>
+      <article class="project reveal-item">
+        <a class="project-img" href="https://teverde29.github.io/Asignador-Heuristico-de-Redes-Logisticas/" target="_blank" rel="noopener" aria-label="Abrir demo del asignador heurístico">
+          <img src="assets/logistica-oscuro.png" alt="Asignador heurístico de redes logísticas sobre mapa satelital de Pucallpa" loading="lazy">
+        </a>
+        <div class="project-body">
+          <p class="pill pill-mini"><span class="dot"></span>Optimización geoespacial · 2026</p>
+          <h3>Asignador Heurístico de Redes</h3>
+          <p>Sistema web interactivo que resuelve la asignación almacén–zona de demanda sobre mapas reales (Pucallpa): distancias efectivas por trazado urbano, factores de seguridad, KPIs de costo y utilización, y respaldo automático ante fallos del servicio de rutas.</p>
+          <p class="chips"><span>JavaScript</span><span>Leaflet Maps</span><span>Heurísticas</span><span>GeoJSON</span></p>
+          <div class="project-btns">
+            <a class="btn btn-primary btn-sm" href="https://github.com/TeVerde29/Asignador-Heuristico-de-Redes-Logisticas" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">terminal</span><span>Ver código</span></a>
+            <a class="btn btn-secondary btn-sm" href="https://teverde29.github.io/Asignador-Heuristico-de-Redes-Logisticas/" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">open_in_new</span><span>Ver demo</span></a>
+          </div>
         </div>
-      </div>
-    </article>
-
-    <p class="proyecto-mas revelar">¿Quieres ver más? <a href="https://github.com/TeVerde29?tab=repositories" target="_blank" rel="noopener">Explora todos mis repositorios ↗</a></p>
+      </article>
+    </div>
+    <div class="center reveal-item">
+      <a class="btn btn-panel" href="https://github.com/TeVerde29?tab=repositories" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">source</span><span>Ver todos mis repositorios en GitHub</span></a>
+    </div>
   </div>
 </section>
 
-<!-- ═══════════ EXPERIENCIA ═══════════ -->
-<section class="seccion seccion-alt" id="experiencia">
-  <div class="contenedor">
-    <p class="kicker revelar">// experiencia</p>
-    <h2 class="revelar">Donde ya <span class="degradado">aporté valor</span></h2>
+<!-- ══════════ 04 EXPERIENCIA ══════════ -->
+<section id="experiencia">
+  <div class="wrap">
+    <div class="sec-head reveal-item">
+      <span class="lbl accent">04 — Experiencia</span>
+      <h2>Trayectoria técnica y colaborativa</h2>
+    </div>
     <div class="timeline">
-      <article class="t-item revelar">
-        <span class="t-punto" aria-hidden="true"></span>
-        <p class="t-fecha">04/2025 – 07/2025 · Pucallpa</p>
-        <h3>Practicante — Oficina de Tecnología de la Información (OTI)</h3>
-        <p class="t-lugar">Universidad Nacional de Ucayali · Sistema de Posgrado · Plataforma AURA</p>
-        <ul>
-          <li>Implementé y mejoré interfaces del <strong>sistema de Posgrado</strong> con validaciones, integridad de campos y conexión al backend.</li>
-          <li>Traduje el <strong>reglamento de Posgrado</strong> en requerimientos funcionales y apoyé el <strong>modelo de base de datos</strong>.</li>
-          <li>Diseñé una <strong>metodología de pruebas en 5 etapas</strong> (levantamiento → diseño → automatización → reporte → re-test), antes inexistente.</li>
-          <li>Automaticé <strong>25 funcionalidades de 8 módulos</strong> con Selenium IDE + Python/Colab y documenté <strong>12 fallos</strong> con evidencias.</li>
-          <li>Apoyé el <strong>registro biométrico</strong> (huella y facial) del personal de Ciencias de la Salud.</li>
-        </ul>
-        <p class="chips"><span>Selenium IDE</span><span>Python</span><span>Colab</span><span>Git</span><span>GitHub</span></p>
+      <article class="t-item reveal-item">
+        <div class="t-card">
+          <div class="t-head"><h3>Practicante — Oficina de Tecnología de la Información (OTI)</h3><span class="mono">04/2025 – 07/2025</span></div>
+          <p class="t-place">Universidad Nacional de Ucayali • Pucallpa · Sistema de Posgrado · Plataforma AURA</p>
+          <ul class="t-list">
+            <li><span class="material-symbols-outlined">check_circle</span><span>Implementé y mejoré interfaces del <strong>sistema de Posgrado</strong> con validaciones, integridad de campos y conexión al backend.</span></li>
+            <li><span class="material-symbols-outlined">check_circle</span><span>Traduje el <strong>reglamento de Posgrado</strong> en requerimientos funcionales y apoyé el <strong>modelo de base de datos</strong>.</span></li>
+            <li><span class="material-symbols-outlined">check_circle</span><span>Diseñé una <strong>metodología de pruebas en 5 etapas</strong> para AURA, creando un proceso formal de testing previo al despliegue.</span></li>
+            <li><span class="material-symbols-outlined">check_circle</span><span>Automaticé <strong>25 funcionalidades de 8 módulos</strong> con Selenium IDE + Python/Colab y documenté <strong>12 fallos</strong> con evidencias.</span></li>
+            <li><span class="material-symbols-outlined">check_circle</span><span>Apoyé el <strong>registro biométrico</strong> (huella y facial) del personal de Ciencias de la Salud.</span></li>
+          </ul>
+          <p class="chips"><span>Angular</span><span>Node.js</span><span>MySQL</span><span>Selenium</span><span>Scrum</span></p>
+        </div>
       </article>
-      <article class="t-item revelar">
-        <span class="t-punto" aria-hidden="true"></span>
-        <p class="t-fecha">2025 – actualidad · Remoto</p>
-        <h3>Desarrollador independiente — proyectos propios</h3>
-        <p class="t-lugar">3 sistemas publicados con demo o instalador · Metodología Scrum</p>
-        <ul>
-          <li><strong>Reportes UNU:</strong> full-stack en producción para incidencias del campus.</li>
-          <li><strong>Asignador logístico:</strong> optimización con mapas reales y KPIs.</li>
-          <li><strong>RotaStock Plus:</strong> escritorio offline con release v2.0.0.</li>
-        </ul>
-        <p class="chips"><span>Angular</span><span>Node.js</span><span>Electron</span><span>MySQL</span></p>
+      <article class="t-item reveal-item" style="transition-delay:150ms">
+        <div class="t-card">
+          <div class="t-head"><h3>Desarrollador independiente — proyectos propios</h3><span class="mono">2025 – Actualidad</span></div>
+          <p class="t-place">Remoto · 3 sistemas publicados con demo o instalador</p>
+          <ul class="t-list">
+            <li><span class="material-symbols-outlined">check_circle</span><span><strong>Reportes UNU:</strong> full-stack en producción para incidencias del campus.</span></li>
+            <li><span class="material-symbols-outlined">check_circle</span><span><strong>Asignador logístico:</strong> optimización con mapas reales y KPIs.</span></li>
+            <li><span class="material-symbols-outlined">check_circle</span><span><strong>RotaStock Plus:</strong> escritorio offline con release v2.0.0.</span></li>
+          </ul>
+          <p class="chips"><span>Angular</span><span>Electron</span><span>Leaflet</span><span>Docker</span></p>
+        </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ EDUCACIÓN ═══════════ -->
-<section class="seccion" id="educacion">
-  <div class="contenedor">
-    <p class="kicker revelar">// educación</p>
-    <h2 class="revelar">Formación y <span class="degradado">reconocimientos</span></h2>
-    <div class="edu-rejilla">
-      <article class="edu revelar">
-        <p class="edu-fecha">2022 – actualidad</p>
-        <h3>Ingeniería de Sistemas — IX ciclo</h3>
-        <p>Universidad Nacional de Ucayali · Pucallpa</p>
-        <div class="pista"><i style="--n:90%"></i></div>
-        <p class="edu-nota">9 de 10 ciclos · enfoque en software, datos y testing</p>
+<!-- ══════════ 05 EDUCACIÓN ══════════ -->
+<section class="band" id="educacion">
+  <div class="wrap">
+    <div class="sec-head reveal-item">
+      <span class="lbl accent">05 — Educación</span>
+      <h2>Formación universitaria y reconocimientos</h2>
+    </div>
+    <div class="edu-grid">
+      <article class="card edu reveal-item" style="transition-delay:50ms">
+        <span class="pillar-icon material-symbols-outlined">school</span>
+        <span class="lbl accent">Pregrado universitario</span>
+        <h3>Ingeniería de Sistemas</h3>
+        <p>Universidad Nacional de Ucayali (UNU) • Pucallpa, Perú</p>
+        <p>Cursando el <strong>IX ciclo</strong>. Énfasis en arquitectura de software, bases de datos relacionales, investigación operativa y QA.</p>
+        <p class="tag-ok"><span class="material-symbols-outlined">verified</span><span>En curso • IX ciclo</span></p>
       </article>
-      <article class="edu edu-premio revelar" style="--d:.12s">
-        <p class="edu-fecha">2024 · UNTELS, Lima Sur</p>
+      <article class="card edu edu-gold reveal-item" style="transition-delay:150ms">
+        <span class="pillar-icon material-symbols-outlined">trophy</span>
+        <span class="lbl accent">CONEIMERA · UNTELS Lima Sur · 2024</span>
         <h3>1.er puesto — Programación competitiva</h3>
-        <p>CONEIMERA · equipo de 3 integrantes</p>
-        <p class="edu-nota">Problemas algorítmicos complejos y optimización bajo presión.</p>
+        <p>Resolución de problemas algorítmicos complejos y optimización de código bajo presión, en equipo de 3 integrantes.</p>
+        <p class="tag-ok"><span class="material-symbols-outlined">military_tech</span><span>Concurso nacional</span></p>
       </article>
-      <article class="edu revelar" style="--d:.24s">
-        <p class="edu-fecha">2025 · UNT, Trujillo</p>
+      <article class="card edu reveal-item" style="transition-delay:250ms">
+        <span class="pillar-icon material-symbols-outlined">workspace_premium</span>
+        <span class="lbl accent">CONEIMERA · UNT Trujillo · 2025</span>
         <h3>Participación académica</h3>
-        <p>CONEIMERA · Congreso nacional de estudiantes</p>
-        <p class="edu-nota">Innovación tecnológica y arquitecturas modernas.</p>
+        <p>Actualización en innovación tecnológica, arquitecturas modernas y tendencias en ingeniería.</p>
+        <p class="tag-ok"><span class="material-symbols-outlined">military_tech</span><span>Formación continua</span></p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ CONTACTO ═══════════ -->
-<section class="seccion seccion-alt" id="contacto">
-  <div class="contenedor">
-    <p class="kicker revelar">// contacto</p>
-    <h2 class="revelar">¿Construimos algo que <span class="degradado">funcione en producción</span>?</h2>
-    <p class="sub revelar">Busco prácticas y proyectos donde el código llegue a usuarios reales.</p>
-    <div class="contacto-rejilla">
-      <div class="revelar">
-        <ul class="contacto-datos">
-          <li><span>Correo</span><a href="mailto:pedro.ricra.figueroa@gmail.com">pedro.ricra.figueroa@gmail.com</a></li>
-          <li><span>Teléfono / WhatsApp</span><a href="https://wa.me/51922149396" target="_blank" rel="noopener">+51 922 149 396</a></li>
-          <li><span>GitHub</span><a href="https://github.com/TeVerde29" target="_blank" rel="noopener">github.com/TeVerde29</a></li>
-          <li><span>LinkedIn</span><a href="http://www.linkedin.com/in/pedro-giovanni-ricra-figueroa-971a20433" target="_blank" rel="noopener">Pedro Giovanni Ricra Figueroa</a></li>
-          <li><span>Ubicación</span><strong>Pucallpa, Perú · UTC−5</strong></li>
+<!-- ══════════ 06 CONTACTO ══════════ -->
+<section id="contacto">
+  <div class="wrap">
+    <div class="sec-head reveal-item">
+      <span class="lbl accent">06 — Contacto</span>
+      <h2>Trabajemos juntos</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal-item">
+        <p class="lead">¿Buscas un desarrollador proactivo para tus proyectos o estás reclutando talentos para prácticas profesionales? Escríbeme y conversemos sobre cómo aportar valor.</p>
+        <ul class="contact-list">
+          <li><span class="pillar-icon material-symbols-outlined">mail</span><div><span class="lbl">Correo electrónico</span><a href="mailto:pedro.ricra.figueroa@gmail.com">pedro.ricra.figueroa@gmail.com</a></div></li>
+          <li><span class="pillar-icon material-symbols-outlined">call</span><div><span class="lbl">Teléfono / WhatsApp</span><a href="https://wa.me/51922149396" target="_blank" rel="noopener">+51 922 149 396</a></div></li>
+          <li><span class="pillar-icon material-symbols-outlined">location_on</span><div><span class="lbl">Ubicación</span><strong>Pucallpa, Ucayali, Perú</strong></div></li>
+          <li><span class="pillar-icon material-symbols-outlined">code</span><div><span class="lbl">GitHub</span><a href="https://github.com/TeVerde29" target="_blank" rel="noopener">github.com/TeVerde29</a></div></li>
         </ul>
+        <div class="contact-btns">
+          <a class="btn btn-primary" href="https://wa.me/51922149396" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">chat</span><span>Escribir por WhatsApp</span></a>
+          <a class="btn btn-secondary" href="https://github.com/TeVerde29/CV/blob/main/CV%20-%20RFPG.docx" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">download</span><span>Descargar CV</span></a>
+        </div>
       </div>
-      <form class="contacto-form revelar" id="contactoForm" style="--d:.15s">
-        <label>Nombre<input type="text" name="nombre" id="fNombre" placeholder="Tu nombre" required autocomplete="name"></label>
-        <label>Correo<input type="email" name="correo" id="fCorreo" placeholder="tu@correo.com" required autocomplete="email"></label>
-        <label>Mensaje<textarea name="mensaje" id="fMensaje" rows="4" placeholder="Cuéntame sobre tu proyecto u oportunidad…" required></textarea></label>
-        <button class="btn btn-solido btn-ancho" type="submit">Enviar mensaje</button>
-        <p class="form-nota" id="formNota" role="status"></p>
+      <form class="form reveal-item" id="contacto-form" style="transition-delay:150ms">
+        <div class="form-row">
+          <label>Nombre completo<input id="f-nombre" type="text" placeholder="Ej. Ana Morales" required autocomplete="name"></label>
+          <label>Correo de contacto<input id="f-correo" type="email" placeholder="ana@empresa.com" required autocomplete="email"></label>
+        </div>
+        <label>Asunto<input id="f-asunto" type="text" placeholder="Propuesta de proyecto o vacante de prácticas" required></label>
+        <label>Mensaje<textarea id="f-mensaje" rows="5" placeholder="Cuéntame sobre el reto técnico, los objetivos y tiempos estimados..." required></textarea></label>
+        <div class="form-foot">
+          <span>Respuesta en menos de 24 horas</span>
+          <button class="btn btn-primary" type="submit"><span>Enviar mensaje</span><span class="material-symbols-outlined shift">send</span></button>
+        </div>
+        <p class="form-note" id="form-note" role="status"></p>
       </form>
     </div>
   </div>
 </section>
 </main>
 
-<footer class="pie">
-  <div class="contenedor pie-rejilla">
-    <p><strong>Pedro Ricra</strong> · Pucallpa, Perú · Hecho a mano en HTML, CSS y JS.</p>
-    <p>© <span id="anio">2026</span> · Código y demos enlazados a repositorios públicos.</p>
+<!-- ══════════ FLOTANTES ══════════ -->
+<aside class="floaters">
+  <a class="floater" href="#top" id="to-top" aria-label="Volver arriba"><span class="material-symbols-outlined">arrow_upward</span></a>
+  <a class="floater floater-wa" href="https://wa.me/51922149396" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp"><span class="material-symbols-outlined">chat</span></a>
+</aside>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="nav-logo">PR</span>
+      <div><h3>Pedro Giovanni Ricra Figueroa</h3><p>Desarrollo de software con propósito</p></div>
+    </div>
+    <nav class="footer-links" aria-label="Enlaces de pie de página">
+      <a href="#inicio">Inicio</a><a href="#sobre-mi">Sobre mí</a><a href="#stack">Stack</a>
+      <a href="#proyectos">Proyectos</a><a href="#experiencia">Experiencia</a><a href="#contacto">Contacto</a>
+    </nav>
   </div>
-  <button class="volver" id="volverArriba" aria-label="Volver arriba">↑</button>
+  <div class="wrap footer-base">
+    <p>© <span id="anio">2026</span> Pedro Giovanni Ricra Figueroa • Hecho a mano en HTML, CSS y JS</p>
+    <p>Pucallpa, Perú • Código y demos enlazados a repositorios públicos</p>
+  </div>
 </footer>
 
 <script src="app.js" defer></script>

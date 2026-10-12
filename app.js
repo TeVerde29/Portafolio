@@ -1,216 +1,202 @@
-// Portafolio Pedro Ricra — preloader, partículas, typer, reveal, tilt, contadores, nav, form.
+// Portafolio Pedro Ricra — réplica Stitch: partículas, reveals, contadores, scrollspy, tema, menú, form.
 (function () {
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ── Preloader con progreso real ── */
-  var pre = document.getElementById("preloader");
-  var pct = document.getElementById("preloaderPct");
-  var bar = document.getElementById("preloaderBar");
-  var avance = 0;
-  function finPre() {
-    if (!pre || pre.classList.contains("fin")) return;
-    if (pct) pct.textContent = "100%";
-    if (bar) bar.style.width = "100%";
-    setTimeout(function () { pre.classList.add("fin"); setTimeout(function () { pre.remove(); }, 600); }, 200);
+  /* ── Tema claro / oscuro con persistencia (oscuro por defecto) ── */
+  var KEY = "pr-tema";
+  var root = document.documentElement;
+  var themeBtn = document.getElementById("theme-btn");
+  var themeIcon = document.getElementById("theme-icon");
+  function paintTheme() {
+    var light = root.getAttribute("data-theme") === "light";
+    if (themeBtn) themeBtn.setAttribute("aria-pressed", light ? "true" : "false");
+    if (themeIcon) themeIcon.textContent = light ? "dark_mode" : "light_mode";
   }
-  if (pre) {
-    if (reduce) { finPre(); }
-    else {
-      var t = setInterval(function () {
-        avance = Math.min(96, avance + 4 + Math.random() * 9);
-        if (pct) pct.textContent = Math.floor(avance) + "%";
-        if (bar) bar.style.width = avance + "%";
-      }, 110);
-      window.addEventListener("load", function () {
-        clearInterval(t);
-        if (pct) pct.textContent = "100%";
-        if (bar) bar.style.width = "100%";
-        setTimeout(finPre, 250);
-      });
-      setTimeout(function () { clearInterval(t); finPre(); }, 4000); // seguridad
-    }
+  try {
+    var saved = localStorage.getItem(KEY);
+    if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+  } catch (e) { /* sin almacenamiento */ }
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem(KEY, next); } catch (e) {}
+      paintTheme();
+    });
   }
+  paintTheme();
 
-  /* ── Canvas: red de partículas ── */
-  var canvas = document.getElementById("heroCanvas");
+  /* ── Partículas del hero (parallax con el mouse) ── */
+  var canvas = document.getElementById("hero-particles");
   if (canvas && !reduce) {
     var ctx = canvas.getContext("2d");
-    var pts = [], W = 0, H = 0;
-    function dimensionar() {
+    var W = 0, H = 0;
+    var mouse = { x: -9999, y: -9999, tx: -9999, ty: -9999 };
+    var parts = [];
+    function size() {
       var r = canvas.parentElement.getBoundingClientRect();
       W = canvas.width = r.width; H = canvas.height = r.height;
-    }
-    function sembrar() {
-      var n = Math.min(90, Math.floor(W * H / 16000));
-      pts = [];
+      var n = Math.min(42, Math.floor(W / 30));
+      parts = [];
       for (var i = 0; i < n; i++) {
-        pts.push({ x: Math.random() * W, y: Math.random() * H,
+        parts.push({
+          ox: Math.random() * W, oy: Math.random() * H,
           vx: (Math.random() - .5) * .45, vy: (Math.random() - .5) * .45,
-          r: 1 + Math.random() * 1.8, ambar: Math.random() < .3 });
+          s: Math.random() * 3 + 1.5, diamond: Math.random() < .4,
+          a: Math.random() * .08 + .08
+        });
       }
     }
-    function dibujar() {
+    window.addEventListener("mousemove", function (e) {
+      var r = canvas.getBoundingClientRect();
+      if (e.clientY >= r.top && e.clientY <= r.bottom) {
+        mouse.tx = e.clientX - r.left; mouse.ty = e.clientY - r.top;
+      }
+    });
+    function frame() {
       ctx.clearRect(0, 0, W, H);
-      for (var i = 0; i < pts.length; i++) {
-        var p = pts[i];
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > W) p.vx *= -1;
-        if (p.y < 0 || p.y > H) p.vy *= -1;
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7);
-        ctx.fillStyle = p.ambar ? "rgba(242,167,27,.8)" : "rgba(45,212,167,.55)";
-        ctx.fill();
-        for (var j = i + 1; j < pts.length; j++) {
-          var q = pts[j], dx = p.x - q.x, dy = p.y - q.y, d = dx * dx + dy * dy;
-          if (d < 130 * 130) {
-            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = "rgba(120,180,175," + (0.16 * (1 - d / 16900)) + ")";
-            ctx.lineWidth = 1; ctx.stroke();
+      mouse.x += (mouse.tx - mouse.x) * .04;
+      mouse.y += (mouse.ty - mouse.y) * .04;
+      var i, j, p;
+      for (i = 0; i < parts.length; i++) {
+        for (j = i + 1; j < parts.length; j++) {
+          var dx = parts[i].ox - parts[j].ox, dy = parts[i].oy - parts[j].oy;
+          var d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 110) {
+            ctx.strokeStyle = "rgba(194,215,163," + ((1 - d / 110) * .1) + ")";
+            ctx.lineWidth = .75;
+            ctx.beginPath(); ctx.moveTo(parts[i].ox, parts[i].oy); ctx.lineTo(parts[j].ox, parts[j].oy); ctx.stroke();
           }
         }
       }
-      requestAnimationFrame(dibujar);
-    }
-    dimensionar(); sembrar(); dibujar();
-    window.addEventListener("resize", function () { dimensionar(); sembrar(); });
-  }
-
-  /* ── Rol rotativo ── */
-  var roles = ["Full-Stack Developer", "Angular + Node.js + MySQL", "Spring Boot · REST APIs", "QA Automation · Selenium"];
-  var rolEl = document.getElementById("rolRotativo");
-  if (rolEl) {
-    if (reduce) { rolEl.textContent = roles.join(" · "); }
-    else {
-      var ri = 0, ci = roles[0].length, borrando = true;
-      setInterval(function () {
-        var actual = roles[ri];
-        if (borrando) { ci--; if (ci <= 0) { borrando = false; ri = (ri + 1) % roles.length; } }
-        else {
-          var sig = roles[ri];
-          ci++;
-          rolEl.textContent = sig.slice(0, ci);
-          if (ci >= sig.length) { borrando = true; }
-          return;
+      for (i = 0; i < parts.length; i++) {
+        p = parts[i];
+        p.ox += p.vx; p.oy += p.vy;
+        if (p.ox < 0) p.ox = W; if (p.ox > W) p.ox = 0;
+        if (p.oy < 0) p.oy = H; if (p.oy > H) p.oy = 0;
+        var mdx = mouse.x - p.ox, mdy = mouse.y - p.oy;
+        var md = Math.sqrt(mdx * mdx + mdy * mdy), sx = 0, sy = 0;
+        if (md < 200 && md > 1) {
+          var f = (1 - md / 200) * 22;
+          sx = -(mdx / md) * f; sy = -(mdy / md) * f;
         }
-        rolEl.textContent = actual.slice(0, ci);
-      }, 55);
+        var x = p.ox + sx, y = p.oy + sy;
+        ctx.fillStyle = "rgba(194,215,163," + p.a + ")";
+        if (p.diamond) {
+          ctx.beginPath();
+          ctx.moveTo(x, y - p.s); ctx.lineTo(x + p.s, y); ctx.lineTo(x, y + p.s); ctx.lineTo(x - p.s, y);
+          ctx.closePath(); ctx.fill();
+        } else { ctx.beginPath(); ctx.arc(x, y, p.s, 0, 7); ctx.fill(); }
+      }
+      requestAnimationFrame(frame);
     }
+    size(); frame();
+    window.addEventListener("resize", size);
   }
 
-  /* ── Reveal + barras + contadores ── */
-  var visibles = document.querySelectorAll(".revelar");
-  function activar(el) {
-    el.classList.add("visible");
-    el.querySelectorAll(".pista i").forEach(function (b) { b.style.width = b.style.getPropertyValue("--n") || "80%"; });
-    if (el.classList.contains("edu") || el.id === "educacion") {
-      el.querySelectorAll(".pista i").forEach(function (b) { b.style.width = b.style.getPropertyValue("--n") || "80%"; });
-    }
-    el.querySelectorAll("[data-contar]").forEach(contar);
-  }
-  function contar(el) {
-    if (el.dataset.listo) return;
-    el.dataset.listo = "1";
-    var fin = parseInt(el.dataset.contar, 10);
-    if (reduce || isNaN(fin)) { el.textContent = String(fin); return; }
-    var i = 0;
-    var id = setInterval(function () {
-      i += Math.max(1, Math.round(fin / 30));
-      if (i >= fin) { el.textContent = String(fin); clearInterval(id); }
-      else el.textContent = String(i);
-    }, 45);
-  }
-  // Contadores dentro del hero (no tienen .revelar propio)
-  document.querySelectorAll("[data-contar]").forEach(function (el) {
-    if ("IntersectionObserver" in window && !reduce) {
-      var o = new IntersectionObserver(function (es) {
-        es.forEach(function (e) { if (e.isIntersecting) { contar(e.target); o.unobserve(e.target); } });
-      }, { threshold: .5 });
-      o.observe(el);
-    } else contar(el);
-  });
+  /* ── Reveals escalonados ── */
+  var items = document.querySelectorAll(".reveal-item");
   if ("IntersectionObserver" in window && !reduce) {
     var obs = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { activar(e.target); obs.unobserve(e.target); } });
-    }, { threshold: .12 });
-    visibles.forEach(function (el) { obs.observe(el); });
-  } else visibles.forEach(activar);
-
-  /* ── Tilt 3D en capturas ── */
-  if (!reduce && window.matchMedia("(hover:hover)").matches) {
-    document.querySelectorAll(".tilt").forEach(function (el) {
-      el.addEventListener("mousemove", function (ev) {
-        var r = el.getBoundingClientRect();
-        var x = (ev.clientX - r.left) / r.width - .5;
-        var y = (ev.clientY - r.top) / r.height - .5;
-        el.style.transform = "perspective(900px) rotateY(" + (x * 7) + "deg) rotateX(" + (-y * 7) + "deg)";
+      es.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("visible"); obs.unobserve(en.target); }
       });
-      el.addEventListener("mouseleave", function () { el.style.transform = "perspective(900px)"; });
-    });
-  }
+    }, { threshold: .12, rootMargin: "0px 0px -40px 0px" });
+    items.forEach(function (el) { obs.observe(el); });
+  } else items.forEach(function (el) { el.classList.add("visible"); });
 
-  /* ── Nav: sólido + scrollspy + menú móvil ── */
-  var nav = document.getElementById("nav");
-  var links = document.querySelectorAll(".nav-links a");
-  var btnMenu = document.getElementById("navMenu");
-  var panel = document.getElementById("navLinks");
-  var volver = document.getElementById("volverArriba");
-  if (btnMenu && panel) {
-    btnMenu.addEventListener("click", function () {
-      var ab = panel.classList.toggle("abierto");
-      btnMenu.classList.toggle("abierto", ab);
-      btnMenu.setAttribute("aria-expanded", ab ? "true" : "false");
-    });
-    panel.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") { panel.classList.remove("abierto"); btnMenu.classList.remove("abierto"); }
-    });
+  /* ── Contadores (con romano IX) ── */
+  var ROMANOS = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
+  function runCounter(el) {
+    if (el.dataset.done) return;
+    el.dataset.done = "1";
+    var target = parseInt(el.dataset.target, 10);
+    var suffix = el.dataset.suffix || "";
+    var roman = el.dataset.type === "roman";
+    if (reduce || isNaN(target)) { el.textContent = (roman ? "IX" : target) + suffix; return; }
+    var t0 = performance.now(), dur = 1400;
+    function tick(now) {
+      var pr = Math.min((now - t0) / dur, 1);
+      var ease = 1 - Math.pow(1 - pr, 3);
+      var cur = Math.floor(ease * target);
+      el.textContent = (roman ? ROMANOS[Math.min(cur, 9)] : cur) + suffix;
+      if (pr < 1) requestAnimationFrame(tick);
+      else el.textContent = (roman ? "IX" : target) + suffix;
+    }
+    requestAnimationFrame(tick);
   }
-  var ids = ["inicio", "sobre-mi", "skills", "proyectos", "experiencia", "educacion", "contacto"];
+  var counters = document.querySelectorAll(".counter-num");
+  if ("IntersectionObserver" in window && !reduce) {
+    var cObs = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (en.isIntersecting) { runCounter(en.target); cObs.unobserve(en.target); }
+      });
+    }, { threshold: .4 });
+    counters.forEach(function (el) { cObs.observe(el); });
+  } else counters.forEach(runCounter);
+
+  /* ── Nav sólida + scrollspy + menú móvil + volver arriba ── */
+  var nav = document.getElementById("main-nav");
+  var navItems = document.querySelectorAll("#nav-links .nav-item");
+  var mobLinks = document.querySelectorAll(".mobile-nav-link");
+  var toTop = document.getElementById("to-top");
+  var burger = document.getElementById("mobile-menu-btn");
+  var mobMenu = document.getElementById("mobile-menu");
+  var ids = ["inicio", "sobre-mi", "stack", "proyectos", "experiencia", "educacion", "contacto"];
   function spy() {
-    var y = window.scrollY + 160, actual = "inicio";
+    var y = window.scrollY, cur = "inicio";
     ids.forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el && el.offsetTop <= y) actual = id;
+      var s = document.getElementById(id);
+      if (s && y >= s.offsetTop - 140) cur = id;
     });
-    links.forEach(function (a) { a.classList.toggle("activo", a.getAttribute("href") === "#" + actual); });
-    if (nav) nav.classList.toggle("solido", window.scrollY > 30);
-    if (volver) volver.classList.toggle("visible", window.scrollY > 700);
+    navItems.forEach(function (a) { a.classList.toggle("active", a.dataset.section === cur); });
+    mobLinks.forEach(function (a) { a.classList.toggle("active", a.dataset.section === cur); });
+    if (nav) nav.classList.toggle("solid", y > 40);
+    if (toTop) toTop.classList.toggle("show", y > 700);
   }
   window.addEventListener("scroll", spy, { passive: true });
   spy();
-  if (volver) volver.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }); });
-
-  /* ── Cursor luz ── */
-  var luz = document.getElementById("cursorLuz");
-  if (luz && window.matchMedia("(hover:hover)").matches && !reduce) {
-    var lx = -500, ly = -500, tx = lx, ty = ly;
-    window.addEventListener("mousemove", function (e) { tx = e.clientX; ty = e.clientY; luz.style.opacity = "1"; });
-    (function seguir() {
-      lx += (tx - lx) * .08; ly += (ty - ly) * .08;
-      luz.style.transform = "translate(" + lx + "px," + ly + "px)";
-      requestAnimationFrame(seguir);
-    })();
+  if (burger && mobMenu) {
+    burger.addEventListener("click", function () {
+      var open = mobMenu.classList.toggle("open");
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+      burger.querySelector(".material-symbols-outlined").textContent = open ? "close" : "menu";
+    });
+    mobLinks.forEach(function (a) {
+      a.addEventListener("click", function () {
+        mobMenu.classList.remove("open");
+        burger.querySelector(".material-symbols-outlined").textContent = "menu";
+      });
+    });
   }
+  if (toTop) toTop.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  });
 
   /* ── Formulario → correo ── */
-  var form = document.getElementById("contactoForm");
+  var form = document.getElementById("contacto-form");
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var n = document.getElementById("fNombre").value.trim();
-      var c = document.getElementById("fCorreo").value.trim();
-      var m = document.getElementById("fMensaje").value.trim();
-      var nota = document.getElementById("formNota");
-      if (!n || !c || !m) { if (nota) nota.textContent = "Completa los tres campos antes de enviar."; return; }
-      var url = "mailto:pedro.ricra.figueroa@gmail.com?subject=" +
-        encodeURIComponent("Contacto desde tu portafolio — " + n) +
+      var n = document.getElementById("f-nombre").value.trim();
+      var c = document.getElementById("f-correo").value.trim();
+      var a = document.getElementById("f-asunto").value.trim();
+      var m = document.getElementById("f-mensaje").value.trim();
+      var note = document.getElementById("form-note");
+      if (!n || !c || !a || !m) {
+        if (note) note.textContent = "Completa todos los campos antes de enviar.";
+        return;
+      }
+      window.location.href = "mailto:pedro.ricra.figueroa@gmail.com?subject=" +
+        encodeURIComponent(a + " — " + n) +
         "&body=" + encodeURIComponent(m + "\n\n— " + n + " (" + c + ")");
-      window.location.href = url;
-      if (nota) nota.textContent = "Abriendo tu correo para enviar el mensaje… ¡gracias, " + n.split(" ")[0] + "!";
+      if (note) note.textContent = "Abriendo tu correo para enviar el mensaje… ¡gracias, " + n.split(" ")[0] + "!";
       form.reset();
     });
   }
 
-  /* ── Año ── */
   var anio = document.getElementById("anio");
   if (anio) anio.textContent = String(new Date().getFullYear());
 })();
