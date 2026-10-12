@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="claro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedro Ricra — Ing. de Sistemas · Desarrollo de Software</title>
+<meta name="description" content="Portafolio de Pedro Giovanni Ricra Figueroa: Ingeniería de Sistemas (IX ciclo, UNU). Full-stack Angular + Node.js + MySQL, Spring Boot, testing y automatización. Pucallpa, Perú.">
+<meta property="og:title" content="Pedro Ricra — Desarrollo de Software">
+<meta property="og:description" content="Full-stack · APIs · Bases de datos · Testing y automatización. Angular, Node.js, MySQL, Spring Boot.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312324A'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='800' font-size='28' fill='%23E9A426' text-anchor='middle'%3EPR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="cargador" id="cargador" aria-hidden="true">
+  <div class="cargador-caja">
+    <span class="cargador-sigla">PR</span>
+    <span class="cargador-texto" id="cargadorTexto">iniciando sistema…</span>
+    <span class="cargador-barra"><i id="cargadorProgreso"></i></span>
+  </div>
+</div>
+
+<header class="barra" id="barra">
+  <a class="marca" href="#inicio" aria-label="Ir al inicio">
+    <span class="marca-sigla">PR</span>
+    <span class="marca-nombre">Pedro Ricra <em>· portafolio</em></span>
+  </a>
+  <nav class="navegacion" id="navegacion" aria-label="Navegación principal">
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#formacion">Formación</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <div class="barra-acciones">
+    <span class="estado" title="Disponible para prácticas y proyectos"><i></i>Disponible</span>
+    <button class="interruptor-tema" id="interruptorTema" aria-label="Cambiar entre tema claro y oscuro" aria-pressed="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+    </button>
+    <a class="boton boton-mini" href="https://github.com/TeVerde29/CV/blob/main/CV%20-%20RFPG.docx" target="_blank" rel="noopener">Descargar CV</a>
+    <button class="menu-boton" id="menuBoton" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- HERO: expediente de ingeniería -->
+  <section class="heroe">
+    <div class="heroe-rejilla">
+      <div class="heroe-texto">
+        <p class="ficha-linea"><span class="ficha-punto"></span> Expediente · Ing. de Sistemas — IX ciclo, UNU · Pucallpa, Perú</p>
+        <h1>Pedro Giovanni<br><span>Ricra Figueroa</span></h1>
+        <p class="heroe-rol">Desarrollo de software full-stack y testing. Construyo aplicaciones web, APIs y herramientas que resuelven problemas reales: del reporte de incidencias del campus a la optimización logística.</p>
+        <div class="heroe-botones">
+          <a class="boton boton-solido" href="#proyectos">Ver proyectos</a>
+          <a class="boton boton-borde" href="mailto:pedro.ricra.figueroa@gmail.com">Escríbeme</a>
+        </div>
+        <dl class="heroe-datos">
+          <div><dt>25</dt><dd>funcionalidades automatizadas</dd></div>
+          <div><dt>8</dt><dd>módulos validados en AURA</dd></div>
+          <div><dt>12</dt><dd>fallos documentados con evidencia</dd></div>
+          <div><dt>1.º</dt><dd>programación competitiva UNTELS 2024</dd></div>
+        </dl>
+      </div>
+
+      <div class="heroe-lateral">
+        <figure class="retrato">
+          <img src="assets/foto.png" alt="Fotografía de Pedro Ricra" onerror="this.closest('.retrato').classList.add('sin-foto');this.remove()">
+          <span class="retrato-iniciales" aria-hidden="true">PR</span>
+          <figcaption>
+            <strong>Pedro Ricra</strong>
+            <span>Angular · Node.js · MySQL · Spring Boot</span>
+          </figcaption>
+          <span class="cinta">PUCALLPA — PERÚ · 2026</span>
+        </figure>
+
+        <div class="consola" role="log" aria-label="Consola de estado">
+          <div class="consola-cabecera"><i></i><i></i><i></i><span>sistema — estado actual</span></div>
+          <pre class="consola-cuerpo" id="consolaTexto"></pre>
+        </div>
+      </div>
+    </div>
+    <div class="heroe-pie">
+      <span>Frontend · Backend · APIs · Bases de datos · Automatización</span>
+      <span class="heroe-scroll" aria-hidden="true"></span>
+    </div>
+  </section>
+
+  <!-- CAPACIDADES -->
+  <section class="bloque capacidades" id="capacidades">
+    <div class="bloque-cabecera">
+      <h2>Lo que puedo aportar a tu equipo</h2>
+      <p>Perfil full-stack con base en datos y disciplina de pruebas. Trabajo con Scrum y dejo evidencia: código, demos y reportes.</p>
+    </div>
+    <div class="capacidades-rejilla">
+      <article><h3>Lenguajes</h3><p>Java · TypeScript · JavaScript · SQL · Python</p></article>
+      <article><h3>Frontend</h3><p>Angular · HTML5 · CSS3 · Figma · Balsamiq</p></article>
+      <article><h3>Backend y APIs</h3><p>Node.js · Spring Boot · REST · Postman · Swagger UI</p></article>
+      <article><h3>Datos</h3><p>MySQL · SQL Server · JSON · Modelado relacional</p></article>
+      <article><h3>Testing</h3><p>Selenium IDE · Pruebas funcionales · Colab</p></article>
+      <article><h3>Herramientas</h3><p>Git · GitHub · Docker · Electron · Leaflet · Chart.js</p></article>
+    </div>
+  </section>
+
+  <!-- SOBRE MI -->
+  <section class="bloque sobre-mi" id="sobre-mi">
+    <div class="sobre-mi-rejilla">
+      <div>
+        <h2>Sobre mí</h2>
+        <p>Soy estudiante de <strong>Ingeniería de Sistemas (IX ciclo)</strong> en la <strong>Universidad Nacional de Ucayali</strong>. Me muevo entre el frontend y el backend: implemento interfaces con validaciones, conecto APIs, diseño modelos de datos y cierro el ciclo con pruebas.</p>
+        <p>En la OTI de la UNU aprendí algo que repito en cada proyecto: <strong>ningún despliegue sale sin un proceso formal de testing</strong>. Por eso documento, automatizo y re-ejecuto hasta validar la corrección.</p>
+        <ul class="lista-chequeo">
+          <li>Integración frontend–backend y validación de datos</li>
+          <li>Diseño de bases de datos desde reglamentos y procesos reales</li>
+          <li>Metodologías ágiles (Scrum) y trabajo con evidencias</li>
+        </ul>
+      </div>
+      <aside class="tarjeta-dato">
+        <h3>Ficha rápida</h3>
+        <ul>
+          <li><span>Ubicación</span><strong>Pucallpa, Perú</strong></li>
+          <li><span>Teléfono</span><a href="tel:+51922149396">+51 922 149 396</a></li>
+          <li><span>Correo</span><a href="mailto:pedro.ricra.figueroa@gmail.com">pedro.ricra.figueroa@gmail.com</a></li>
+          <li><span>GitHub</span><a href="https://github.com/TeVerde29" target="_blank" rel="noopener">github.com/TeVerde29</a></li>
+          <li><span>LinkedIn</span><a href="http://www.linkedin.com/in/pedro-giovanni-ricra-figueroa-971a20433" target="_blank" rel="noopener">Pedro Ricra</a></li>
+        </ul>
+        <a class="boton boton-solido boton-ancho" href="https://github.com/TeVerde29/CV/blob/main/CV%20-%20RFPG.docx" target="_blank" rel="noopener">Descargar CV en Word</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section class="bloque experiencia" id="experiencia">
+    <div class="bloque-cabecera">
+      <h2>Experiencia</h2>
+      <p>Práctica real en producción universitaria: desarrollo, datos y calidad.</p>
+    </div>
+    <article class="empleo">
+      <div class="empleo-cabecera">
+        <div>
+          <h3>Practicante — Oficina de Tecnología de la Información (OTI)</h3>
+          <p class="empleo-lugar">Universidad Nacional de Ucayali · Pucallpa · 04/2025 – 07/2025</p>
+        </div>
+        <span class="empleo-sello">Sistema de Posgrado · Plataforma AURA</span>
+      </div>
+      <ul class="empleo-logros">
+        <li>Implementé y mejoré interfaces del <strong>sistema de Posgrado</strong>, con validaciones de datos, integridad de campos y conexión con el backend.</li>
+        <li>Analicé el <strong>reglamento de Posgrado</strong> para traducir reglas del proceso en requerimientos funcionales y apoyar el <strong>modelo de base de datos</strong>.</li>
+        <li>Diseñé una <strong>metodología de pruebas funcionales en 5 etapas</strong> para la plataforma AURA, creando un proceso formal de testing previo al despliegue.</li>
+        <li>Automaticé con <strong>Selenium IDE</strong> y validaciones backend en <strong>Python + Google Colab</strong>: <strong>25 funcionalidades de 8 módulos</strong>, con <strong>12 fallos documentados</strong> con evidencias.</li>
+        <li>Re-ejecuté los casos fallidos tras las correcciones y apoyé el <strong>registro biométrico</strong> (huella y facial) de la Facultad de Ciencias de la Salud.</li>
+      </ul>
+      <ol class="etapas" aria-label="Metodología de pruebas en 5 etapas">
+        <li><strong>Levantamiento</strong><span>reglas y casos</span></li>
+        <li><strong>Diseño</strong><span>casos y datos</span></li>
+        <li><strong>Automatización</strong><span>Selenium + Python</span></li>
+        <li><strong>Reporte</strong><span>12 fallos con evidencia</span></li>
+        <li><strong>Re-test</strong><span>validación de fixes</span></li>
+      </ol>
+      <p class="empleo-herramientas">Selenium IDE · Python · Jupyter · Google Colab · Git · GitHub</p>
+    </article>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section class="bloque proyectos" id="proyectos">
+    <div class="bloque-cabecera">
+      <h2>Proyectos que puedes abrir hoy</h2>
+      <p>Cada uno tiene código y demo o instalador. Sin humo: entra, pruébalo, revisa el repositorio.</p>
+    </div>
+
+    <article class="proyecto revelar">
+      <div class="proyecto-ventana" aria-hidden="true">
+        <span class="ventana-barra"><i></i><i></i><i></i><em>reportes-unu.vercel.app</em></span>
+        <div class="ventana-cuerpo maqueta-reportes">
+          <span class="m-fila m-titulo"></span>
+          <span class="m-fila"></span>
+          <span class="m-tarjetas"><i></i><i></i><i></i></span>
+        </div>
+      </div>
+      <div class="proyecto-texto">
+        <p class="proyecto-anio">2025 · Web full-stack · UNU</p>
+        <h3>Sistema de reporte de incidencias del campus</h3>
+        <p>Aplicación para reportar y gestionar incidencias de infraestructura. Construí el módulo del estudiante: registro, consulta y edición de reportes con fotografía, tipo de incidencia y ubicación. Trabajo bajo Scrum.</p>
+        <p class="proyecto-stack">Angular · Node.js · MySQL</p>
+        <div class="proyecto-enlaces">
+          <a href="https://reportes-unu.vercel.app/" target="_blank" rel="noopener">Abrir demo</a>
+          <a href="https://github.com/TeVerde29/Reportes_UNU" target="_blank" rel="noopener">Ver código</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proyecto proyecto-invertido revelar">
+      <div class="proyecto-ventana" aria-hidden="true">
+        <span class="ventana-barra"><i></i><i></i><i></i><em>asignador logístico — mapa real</em></span>
+        <div class="ventana-cuerpo maqueta-mapa">
+          <span class="m-mapa"><i class="m-ruta"></i><i class="m-nodo a"></i><i class="m-nodo b"></i></span>
+          <span class="m-panel"><i></i><i></i><i></i></span>
+        </div>
+      </div>
+      <div class="proyecto-texto">
+        <p class="proyecto-anio">2026 · Optimización · Mapa real</p>
+        <h3>Asignador heurístico de redes logísticas</h3>
+        <p>Optimiza la asignación almacén–zona sobre un mapa real con distancias por calle y respaldo automático ante fallos del servicio de rutas. Incluye KPIs de costo, distancia y utilización.</p>
+        <p class="proyecto-stack">JavaScript · Leaflet.js · HTML · CSS · JSON</p>
+        <div class="proyecto-enlaces">
+          <a href="https://teverde29.github.io/Asignador-Heuristico-de-Redes-Logisticas/" target="_blank" rel="noopener">Abrir demo</a>
+          <a href="https://github.com/TeVerde29/Asignador-Heuristico-de-Redes-Logisticas" target="_blank" rel="noopener">Ver código</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proyecto revelar">
+      <div class="proyecto-ventana" aria-hidden="true">
+        <span class="ventana-barra"><i></i><i></i><i></i><em>rotastock plus — escritorio offline</em></span>
+        <div class="ventana-cuerpo maqueta-stock">
+          <span class="m-barras"><i style="--h:45%"></i><i style="--h:70%"></i><i style="--h:55%"></i><i style="--h:90%"></i><i style="--h:64%"></i></span>
+          <span class="m-panel"><i></i><i></i><i></i></span>
+        </div>
+      </div>
+      <div class="proyecto-texto">
+        <p class="proyecto-anio">2026 · Escritorio offline · Almacén</p>
+        <h3>RotaStock Plus — control de inventario</h3>
+        <p>Gestión completa del almacén sin conexión: FIFO, semaforización de rotación, clasificación ABC/XYZ, plan de compras, conteos auditables, informes en PDF y Excel, y copias de seguridad automáticas.</p>
+        <p class="proyecto-stack">JavaScript · Electron · Chart.js · SheetJS · jsPDF</p>
+        <div class="proyecto-enlaces">
+          <a href="https://github.com/TeVerde29/RotaStock-Plus/releases/tag/v2.0.0" target="_blank" rel="noopener">Descargar instalador v2.0.0</a>
+          <a href="https://github.com/TeVerde29/RotaStock-Plus" target="_blank" rel="noopener">Ver código</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- FORMACION -->
+  <section class="bloque formacion" id="formacion">
+    <div class="bloque-cabecera">
+      <h2>Formación y reconocimiento</h2>
+    </div>
+    <div class="formacion-rejilla">
+      <article>
+        <h3>Ingeniería de Sistemas</h3>
+        <p>Universidad Nacional de Ucayali · 2022 – actualidad (IX ciclo)</p>
+        <p class="formacion-nota">Enfoque en desarrollo de software, bases de datos y testing.</p>
+      </article>
+      <article class="premio">
+        <h3>1.er puesto — Programación competitiva</h3>
+        <p>CONEIMERA · UNTELS Lima Sur · 2024 (equipo de 3)</p>
+        <p class="formacion-nota">Problemas algorítmicos complejos y optimización bajo presión.</p>
+      </article>
+      <article>
+        <h3>Participación académica</h3>
+        <p>CONEIMERA · UNT Trujillo · 2025</p>
+        <p class="formacion-nota">Innovación tecnológica, arquitecturas modernas y tendencias.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="bloque contacto" id="contacto">
+    <div class="contacto-caja">
+      <div>
+        <h2>¿Construimos algo que funcione en producción?</h2>
+        <p>Busco prácticas y proyectos donde el código llegue a usuarios reales. Respondo en menos de 24 horas.</p>
+        <div class="contacto-botones">
+          <a class="boton boton-solido" href="mailto:pedro.ricra.figueroa@gmail.com?subject=Contacto%20desde%20tu%20portafolio">Enviar correo</a>
+          <a class="boton boton-borde" href="https://wa.me/51922149396" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+      <ul class="contacto-lista">
+        <li><span>Correo</span><a href="mailto:pedro.ricra.figueroa@gmail.com">pedro.ricra.figueroa@gmail.com</a></li>
+        <li><span>Teléfono</span><a href="tel:+51922149396">+51 922 149 396</a></li>
+        <li><span>GitHub</span><a href="https://github.com/TeVerde29" target="_blank" rel="noopener">github.com/TeVerde29</a></li>
+        <li><span>LinkedIn</span><a href="http://www.linkedin.com/in/pedro-giovanni-ricra-figueroa-971a20433" target="_blank" rel="noopener">Pedro Giovanni Ricra Figueroa</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <p><strong>Pedro Ricra</strong> · Pucallpa, Perú · Hecho a mano en HTML, CSS y JS. Sin plantillas.</p>
+  <p class="pie-secundario">© 2026 · Código y demos enlazados a repositorios públicos.</p>
+  <a class="volver" href="#inicio">Volver arriba</a>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
