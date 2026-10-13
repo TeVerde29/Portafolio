@@ -222,40 +222,6 @@
     });
   }
 
-  /* ── Copiar correo al portapapeles ── */
-  var copyBtn = document.getElementById("copy-mail");
-  var copyTip = document.getElementById("copy-tip");
-  var copyTimer = null;
-  function copyFeedback(ok) {
-    if (!copyTip || !copyBtn) return;
-    copyTip.textContent = ok ? "¡Copiado!" : "No se pudo copiar";
-    copyBtn.classList.toggle("ok", ok);
-    clearTimeout(copyTimer);
-    copyTimer = setTimeout(function () {
-      copyTip.textContent = "Copiar correo";
-      copyBtn.classList.remove("ok");
-    }, 1600);
-  }
-  if (copyBtn) {
-    copyBtn.addEventListener("click", function () {
-      var email = copyBtn.dataset.email || "";
-      function done(ok) { copyFeedback(ok); }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(email).then(function () { done(true); }, function () { done(false); });
-      } else {
-        // Respaldo para navegadores sin Clipboard API
-        var ta = document.createElement("textarea");
-        ta.value = email;
-        ta.style.position = "fixed"; ta.style.opacity = "0";
-        document.body.appendChild(ta);
-        ta.select();
-        try { done(document.execCommand("copy")); }
-        catch (e) { done(false); }
-        document.body.removeChild(ta);
-      }
-    });
-  }
-
   var anio = document.getElementById("anio");
   if (anio) anio.textContent = String(new Date().getFullYear());
 })();
