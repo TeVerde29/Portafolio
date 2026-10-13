@@ -182,7 +182,7 @@ html[data-theme="dark"] .btn-primary:hover{background:#d4e5bc}
 .project:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--accent)}
 .project.flip .project-body{order:-1}
 .project-img{display:block;border-radius:1rem;overflow:hidden;border:1px solid var(--border);background:var(--elevated)}
-.project-img img{width:100%;height:19rem;object-fit:cover;object-position:top center;transition:transform .5s}
+.project-img img{width:100%;height:24rem;object-fit:cover;object-position:top center;transition:transform .5s}
 .project-img:hover img{transform:scale(1.03)}
 .project-body h3{font-size:1.6rem;font-weight:700}
 .project-body p{color:var(--muted)}
@@ -292,7 +292,7 @@ html[data-theme="dark"] .btn-primary:hover{background:#d4e5bc}
   .form-row{grid-template-columns:1fr}
   .hero{padding-top:7rem}
   .project{padding:1.25rem}
-  .project-img img{height:14rem}
+  .project-img img{height:17rem}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
