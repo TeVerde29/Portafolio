@@ -1,6 +1,6 @@
 # Portafolio — Pedro Giovanni Ricra Figueroa
 
-Portafolio personal de una sola página: Ingeniería de Sistemas (IX ciclo, UNU), desarrollo full-stack y QA automation. HTML, CSS y JS puros, sin frameworks ni build.
+Portafolio personal de una sola página: Ingeniería de Sistemas (X ciclo, UNU), desarrollo full-stack y QA automation. HTML, CSS y JS puros, sin frameworks ni build.
 
 **En vivo:** https://teverde29.github.io/Portafolio/
 
@@ -27,15 +27,6 @@ Portafolio/
 
 El `index.html` contiene todo el contenido; `styles.css` resuelve el tema con variables CSS (`data-theme="dark"|"light"`); `app.js` es un IIFE que inicializa partículas del hero, reveals por `IntersectionObserver`, contadores del hero, scrollspy, menú móvil, interruptor de tema, galería emergente y formulario FormSubmit.
 
-## Primeros pasos
-
-Sin instalación ni prerrequisitos. Opción 1: abre `index.html` en el navegador. Opción 2: sirve la carpeta:
-
-```powershell
-python -m http.server 8080
-# http://localhost:8080
-```
-
 ## Estructura del proyecto
 
 - `index.html` — nav fijo, hero con canvas, secciones `sobre-mi`, `stack`, `proyectos`, `experiencia`, `educacion`, `contacto`, galería emergente, botones flotantes y footer
@@ -57,7 +48,6 @@ python -m http.server 8080
 
 - Rama principal: `main` (despliegue automático en GitHub Pages desde raíz)
 - Cambio típico: editar → verificar (`node --check app.js`, abrir `index.html`) → `git add .` → commit → `push`
-- Commits en español, imperativos: `feat(portafolio): ...`, `fix(portafolio): ...`
 - El CV se actualiza reemplazando `CV/CV - RFPG.pdf` con el mismo nombre (los botones no requieren cambios)
 
 ## Estándares de código
@@ -66,14 +56,6 @@ python -m http.server 8080
 - CSS con variables de tema, mobile-first progresivo, foco visible y contraste AA
 - JS en un solo IIFE, `"use strict"`, sin dependencias; respeta `prefers-reduced-motion`
 - Rutas relativas (`assets/`, `CV/`) para que funcione en GitHub Pages y en local
-
-## Pruebas
-
-Sin suite automatizada. Verificación manual antes de cada push:
-
-1. `node --check app.js`
-2. Abrir `index.html`: hero, partículas, tema claro/oscuro, menú móvil (≤860px), formulario y descarga del CV
-3. Comprobar que las imágenes referenciadas existen en `assets/`
 
 ## Cómo contribuir
 
