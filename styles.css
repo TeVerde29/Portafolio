@@ -112,6 +112,7 @@ html[data-theme="dark"] .btn-primary:hover{background:#d4e5bc}
 .hero-social a{width:2.5rem;height:2.5rem;display:grid;place-items:center;border-radius:.75rem;
   background:var(--elevated);border:1px solid var(--border);color:var(--muted);transition:all .25s}
 .hero-social a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-3px)}
+.hero-social svg{width:1.25rem;height:1.25rem}
 .hero-visual{display:grid;justify-items:center}
 .portrait{position:relative;width:min(22rem,78vw);aspect-ratio:1;border-radius:1rem;padding:.5rem;
   background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow)}
