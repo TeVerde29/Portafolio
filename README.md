@@ -11,6 +11,8 @@ Portafolio personal de una sola página: Ingeniería de Sistemas (IX ciclo, UNU)
 - **Sin build:** apertura directa en el navegador o cualquier servidor estático
 - **Diseño:** réplica del sistema "Matcha Editorial" (tokens en `styles.css` con `:root` + `html[data-theme]`)
 - **Temas:** oscuro `#111A13` / claro `#F7F8F1`, con persistencia en `localStorage`
+- **Contacto:** formulario con envío real vía FormSubmit (AJAX, token) + `mailto:` como respaldo
+- **Evidencia:** galería emergente (lightbox) por proyecto con teclado y precarga
 
 ## Arquitectura
 
@@ -23,7 +25,7 @@ Portafolio/
 └── assets/      # foto de perfil y capturas de proyectos
 ```
 
-El `index.html` contiene todo el contenido; `styles.css` resuelve el tema con variables CSS (`data-theme="dark"|"light"`); `app.js` es un IIFE que inicializa partículas del hero, reveals por `IntersectionObserver`, contadores, scrollspy, menú móvil, interruptor de tema y formulario `mailto:`.
+El `index.html` contiene todo el contenido; `styles.css` resuelve el tema con variables CSS (`data-theme="dark"|"light"`); `app.js` es un IIFE que inicializa partículas del hero, reveals por `IntersectionObserver`, contadores, scrollspy, menú móvil, interruptor de tema, galería emergente y formulario FormSubmit.
 
 ## Primeros pasos
 
@@ -36,7 +38,7 @@ python -m http.server 8080
 
 ## Estructura del proyecto
 
-- `index.html` — nav fijo, hero con canvas, secciones `sobre-mi`, `stack`, `proyectos`, `experiencia`, `educacion`, `contacto`, botones flotantes y footer
+- `index.html` — nav fijo, hero con canvas, secciones `sobre-mi`, `stack`, `proyectos`, `experiencia`, `educacion`, `contacto`, galería emergente, botones flotantes y footer
 - `styles.css` — tokens de color, componentes (botones, tarjetas, timeline, formulario), responsive en `1020px` y `860px`, `prefers-reduced-motion`
 - `app.js` — verificado con `node --check app.js`
 - `CV/` — `CV - RFPG.pdf` (descarga de los botones del sitio), `.docx` fuente y plantilla
@@ -46,9 +48,10 @@ python -m http.server 8080
 
 - Hero con red de partículas con parallax, insignias flotantes y métricas
 - 6 secciones numeradas (01–06) con reveals escalonados al hacer scroll
-- 3 proyectos con capturas reales, formato problema → solución → impacto y enlaces a demo/código
+- 3 proyectos con captura principal, formato problema → solución → impacto, enlaces a demo/código y botón **Ver fotos** con galería emergente (10 UNU, 9 RotaStock, 2 asignador)
+- Logos SVG originales de GitHub/LinkedIn/correo en los botones sociales
 - Skills en 6 tarjetas, experiencia en timeline, educación con tarjeta dorada CONEIMERA
-- Tema claro/oscuro persistente, contadores animados (incluido romano IX), marquesina de stack, formulario que abre el correo, WhatsApp flotante y volver arriba
+- Tema claro/oscuro persistente, contadores animados, marquesina de stack, formulario con envío real (FormSubmit + respaldo `mailto:`), WhatsApp flotante y volver arriba
 
 ## Flujo de desarrollo
 
