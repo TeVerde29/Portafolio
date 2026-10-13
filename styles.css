@@ -54,6 +54,8 @@ section{padding:5rem 0}
 .chips span{font-family:Inter,Arial,sans-serif;font-size:.78rem;font-weight:600;color:var(--accent);
   background:var(--chip-bg);border:1px solid var(--border);padding:.3rem .75rem;border-radius:.5rem;transition:transform .25s,border-color .25s}
 .chips span:hover{transform:translateY(-2px);border-color:var(--accent)}
+.chips span:has(img){display:inline-flex;align-items:center;gap:.35rem}
+.chip-logo{width:.95rem;height:.95rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:Inter,Arial,sans-serif;
   font-weight:600;font-size:.9rem;text-decoration:none;border-radius:.75rem;padding:.85rem 1.5rem;cursor:pointer;
   border:1px solid transparent;transition:transform .25s,background .25s,color .25s,border-color .25s,box-shadow .25s}
