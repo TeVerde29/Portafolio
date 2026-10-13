@@ -175,7 +175,7 @@
     window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
   });
 
-  /* ── Formulario → correo ── */
+  /* ── Formulario → envío real con FormSubmit (AJAX) ── */
   var form = document.getElementById("contacto-form");
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -185,15 +185,40 @@
       var a = document.getElementById("f-asunto").value.trim();
       var m = document.getElementById("f-mensaje").value.trim();
       var note = document.getElementById("form-note");
+      var btn = form.querySelector('button[type="submit"]');
       if (!n || !c || !a || !m) {
         if (note) note.textContent = "Completa todos los campos antes de enviar.";
         return;
       }
-      window.location.href = "mailto:pedro.ricra.figueroa@gmail.com?subject=" +
-        encodeURIComponent(a + " — " + n) +
-        "&body=" + encodeURIComponent(m + "\n\n— " + n + " (" + c + ")");
-      if (note) note.textContent = "Abriendo tu correo para enviar el mensaje… ¡gracias, " + n.split(" ")[0] + "!";
-      form.reset();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c)) {
+        if (note) note.textContent = "Revisa el correo: no parece válido.";
+        return;
+      }
+      if (btn) { btn.disabled = true; btn.style.opacity = ".6"; }
+      if (note) note.textContent = "Enviando mensaje…";
+      fetch("https://formsubmit.co/ajax/pedro.ricra.figueroa@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          nombre: n, email: c, asunto: a, mensaje: m,
+          _subject: "Portafolio: " + a + " — " + n,
+          _template: "table", _captcha: "false"
+        })
+      }).then(function (res) {
+        if (!res.ok) throw new Error("http " + res.status);
+        return res.json();
+      }).then(function () {
+        if (note) note.textContent = "¡Mensaje enviado! Te responderé en menos de 24 horas.";
+        form.reset();
+      }).catch(function () {
+        // Sin conexión al servicio: alternativa con el correo del visitante
+        window.location.href = "mailto:pedro.ricra.figueroa@gmail.com?subject=" +
+          encodeURIComponent(a + " — " + n) +
+          "&body=" + encodeURIComponent(m + "\n\n— " + n + " (" + c + ")");
+        if (note) note.textContent = "No se pudo enviar directo; abriendo tu correo como alternativa…";
+      }).then(function () {
+        if (btn) { btn.disabled = false; btn.style.opacity = ""; }
+      });
     });
   }
 
