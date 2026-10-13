@@ -196,7 +196,7 @@
       }
       if (btn) { btn.disabled = true; btn.style.opacity = ".6"; }
       if (note) note.textContent = "Enviando mensaje…";
-      fetch("https://formsubmit.co/ajax/pedro.ricra.figueroa@gmail.com", {
+      fetch("https://formsubmit.co/ajax/787f62adc27ed9a5f68bdf5e07eac5db", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify({
