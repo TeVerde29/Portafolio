@@ -194,6 +194,7 @@
           <div class="project-btns">
             <a class="btn btn-primary btn-sm" href="https://github.com/TeVerde29/Reportes_UNU" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">terminal</span><span>Ver código</span></a>
             <a class="btn btn-secondary btn-sm" href="https://reportes-unu.vercel.app/" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">open_in_new</span><span>Ver demo</span></a>
+            <button class="btn btn-ghost btn-sm galeria-btn" data-galeria="reportes" type="button"><span class="material-symbols-outlined shift">photo_library</span><span>Ver fotos (10)</span></button>
           </div>
         </div>
       </article>
@@ -206,6 +207,7 @@
           <div class="project-btns">
             <a class="btn btn-primary btn-sm" href="https://github.com/TeVerde29/RotaStock-Plus" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">terminal</span><span>Ver código</span></a>
             <a class="btn btn-secondary btn-sm" href="https://github.com/TeVerde29/RotaStock-Plus/releases/tag/v2.0.0" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">open_in_new</span><span>Instalador v2.0.0</span></a>
+            <button class="btn btn-ghost btn-sm galeria-btn" data-galeria="rotastock" type="button"><span class="material-symbols-outlined shift">photo_library</span><span>Ver fotos (9)</span></button>
           </div>
         </div>
         <a class="project-img" href="https://github.com/TeVerde29/RotaStock-Plus/releases/tag/v2.0.0" target="_blank" rel="noopener" aria-label="Descargar instalador de RotaStock Plus">
@@ -224,6 +226,7 @@
           <div class="project-btns">
             <a class="btn btn-primary btn-sm" href="https://github.com/TeVerde29/Asignador-Heuristico-de-Redes-Logisticas" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">terminal</span><span>Ver código</span></a>
             <a class="btn btn-secondary btn-sm" href="https://teverde29.github.io/Asignador-Heuristico-de-Redes-Logisticas/" target="_blank" rel="noopener"><span class="material-symbols-outlined shift">open_in_new</span><span>Ver demo</span></a>
+            <button class="btn btn-ghost btn-sm galeria-btn" data-galeria="logistica" type="button"><span class="material-symbols-outlined shift">photo_library</span><span>Ver fotos (2)</span></button>
           </div>
         </div>
       </article>
@@ -344,6 +347,18 @@
   </div>
 </section>
 </main>
+
+<!-- ══════════ GALERÍA EMERGENTE ══════════ -->
+<div class="galeria" id="galeria" role="dialog" aria-modal="true" aria-label="Galería de capturas del proyecto" aria-hidden="true">
+  <div class="galeria-fondo" id="galeria-fondo"></div>
+  <figure class="galeria-caja">
+    <button class="galeria-cerrar" id="galeria-cerrar" aria-label="Cerrar galería"><span class="material-symbols-outlined">close</span></button>
+    <button class="galeria-nav ant" id="galeria-ant" aria-label="Foto anterior"><span class="material-symbols-outlined">arrow_back</span></button>
+    <img id="galeria-img" src="assets/foto.png" alt="Captura del proyecto">
+    <button class="galeria-nav sig" id="galeria-sig" aria-label="Foto siguiente"><span class="material-symbols-outlined">arrow_forward</span></button>
+    <figcaption><strong id="galeria-titulo"></strong><span id="galeria-contador"></span></figcaption>
+  </figure>
+</div>
 
 <!-- ══════════ FLOTANTES ══════════ -->
 <aside class="floaters">

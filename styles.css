@@ -224,6 +224,29 @@ html[data-theme="dark"] .btn-primary:hover{background:#d4e5bc}
 .form-foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
 .form-note{margin:0;color:var(--accent);font-size:.9rem;min-height:1.4em}
 
+/* ── Galería emergente ── */
+.galeria{position:fixed;inset:0;z-index:150;display:grid;place-items:center;padding:1rem;
+  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.galeria.abierta{opacity:1;visibility:visible}
+.galeria-fondo{position:absolute;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(6px)}
+.galeria-caja{position:relative;margin:0;max-width:62rem;width:100%;background:var(--surface);
+  border:1px solid var(--border);border-radius:1.25rem;padding:1rem;box-shadow:var(--shadow);
+  transform:translateY(12px) scale(.98);transition:transform .3s}
+.galeria.abierta .galeria-caja{transform:none}
+.galeria-caja img{width:100%;max-height:70vh;object-fit:contain;border-radius:.75rem;background:#000}
+.galeria-caja figcaption{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  padding:.8rem .3rem 0;font-size:.9rem}
+.galeria-caja figcaption strong{font-family:"Space Grotesk"}
+.galeria-caja figcaption span{font-family:Inter;color:var(--muted);font-size:.8rem;white-space:nowrap}
+.galeria-cerrar{position:absolute;top:-1rem;right:-1rem;width:2.6rem;height:2.6rem;border-radius:50%;cursor:pointer;
+  display:grid;place-items:center;background:var(--btn-bg);color:var(--btn-tx);border:0;transition:transform .2s}
+.galeria-cerrar:hover{transform:scale(1.1)}
+.galeria-nav{position:absolute;top:50%;transform:translateY(-50%);width:2.8rem;height:2.8rem;border-radius:50%;cursor:pointer;
+  display:grid;place-items:center;background:var(--elevated);border:1px solid var(--border);color:var(--text);transition:all .2s}
+.galeria-nav:hover{border-color:var(--accent);color:var(--accent)}
+.galeria-nav.ant{left:-1.2rem}
+.galeria-nav.sig{right:-1.2rem}
+
 /* ── Flotantes / footer ── */
 .floaters{position:fixed;right:1.25rem;bottom:1.25rem;z-index:90;display:flex;flex-direction:column;gap:.7rem}
 .floater{width:2.9rem;height:2.9rem;border-radius:50%;display:grid;place-items:center;text-decoration:none;

@@ -222,6 +222,91 @@
     });
   }
 
+  /* ── Galería emergente por proyecto ── */
+  var FOTOS = {
+    reportes: [
+      ["assets/unu-pendientes-web.png", "Tabla de reportes pendientes del panel trabajador"],
+      ["assets/unu-detalle-web.png", "Detalle de incidencia con evidencia visual"],
+      ["assets/p-reportes.png", "Módulo del estudiante con reportes del campus"],
+      ["assets/unu-login.png", "Inicio de sesión del sistema UNU Incidencias"],
+      ["assets/unu-reportes.png", "Lista de reportes con foto y ubicación"],
+      ["assets/unu-nuevo.png", "Formulario de nuevo reporte con croquis del campus"],
+      ["assets/unu-pendientes.png", "Reportes pendientes por atender"],
+      ["assets/unu-detalle.png", "Detalle y aceptación de un reporte"],
+      ["assets/unu-dashboard.png", "Dashboard con KPIs del campus"],
+      ["assets/unu-distribucion.png", "Distribución por tipo y top de ubicaciones"]
+    ],
+    rotastock: [
+      ["assets/rota-panel.png", "Panel de control con KPIs y gráficos"],
+      ["assets/rota-productos.png", "Catálogo de productos con semaforización"],
+      ["assets/rota-productos-oscuro.png", "Catálogo en tema oscuro"],
+      ["assets/rota-abc-oscuro.png", "Clasificación ABC/XYZ con curva de importancia"],
+      ["assets/rota-movimientos.png", "Historial de compras y ventas"],
+      ["assets/rota-movimientos-oscuro.png", "Movimientos en tema oscuro"],
+      ["assets/rota-compras.png", "Plan de compras sugerido"],
+      ["assets/rota-conteos.png", "Conteos auditables de almacén"],
+      ["assets/p-rotastock.png", "Vista general del panel de control"]
+    ],
+    logistica: [
+      ["assets/logistica-claro.png", "Optimización sobre mapa de Pucallpa en tema claro"],
+      ["assets/logistica-oscuro.png", "Rutas y utilización por almacén en tema oscuro"]
+    ]
+  };
+  var gal = document.getElementById("galeria");
+  var galImg = document.getElementById("galeria-img");
+  var galTit = document.getElementById("galeria-titulo");
+  var galCont = document.getElementById("galeria-contador");
+  var galClave = null, galIdx = 0, ultimoFoco = null;
+  function mostrarGal() {
+    var lista = FOTOS[galClave] || [];
+    if (!lista.length || !galImg) return;
+    galIdx = (galIdx + lista.length) % lista.length;
+    galImg.src = lista[galIdx][0];
+    galImg.alt = lista[galIdx][1];
+    if (galTit) galTit.textContent = lista[galIdx][1];
+    if (galCont) galCont.textContent = (galIdx + 1) + " / " + lista.length;
+    // Precarga vecinas
+    [1, -1].forEach(function (d) {
+      var pre = new Image();
+      pre.src = lista[(galIdx + d + lista.length) % lista.length][0];
+    });
+  }
+  function abrirGal(clave, btn) {
+    if (!gal || !FOTOS[clave]) return;
+    galClave = clave; galIdx = 0;
+    ultimoFoco = btn || document.activeElement;
+    mostrarGal();
+    gal.classList.add("abierta");
+    gal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    var cerrar = document.getElementById("galeria-cerrar");
+    if (cerrar) cerrar.focus();
+  }
+  function cerrarGal() {
+    if (!gal) return;
+    gal.classList.remove("abierta");
+    gal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (ultimoFoco && ultimoFoco.focus) ultimoFoco.focus();
+  }
+  document.querySelectorAll(".galeria-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () { abrirGal(btn.dataset.galeria, btn); });
+  });
+  var gAnt = document.getElementById("galeria-ant");
+  var gSig = document.getElementById("galeria-sig");
+  var gCerr = document.getElementById("galeria-cerrar");
+  var gFon = document.getElementById("galeria-fondo");
+  if (gAnt) gAnt.addEventListener("click", function () { galIdx--; mostrarGal(); });
+  if (gSig) gSig.addEventListener("click", function () { galIdx++; mostrarGal(); });
+  if (gCerr) gCerr.addEventListener("click", cerrarGal);
+  if (gFon) gFon.addEventListener("click", cerrarGal);
+  document.addEventListener("keydown", function (e) {
+    if (!gal || !gal.classList.contains("abierta")) return;
+    if (e.key === "Escape") cerrarGal();
+    else if (e.key === "ArrowLeft") { galIdx--; mostrarGal(); }
+    else if (e.key === "ArrowRight") { galIdx++; mostrarGal(); }
+  });
+
   var anio = document.getElementById("anio");
   if (anio) anio.textContent = String(new Date().getFullYear());
 })();
