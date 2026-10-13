@@ -113,6 +113,15 @@ html[data-theme="dark"] .btn-primary:hover{background:#d4e5bc}
   background:var(--elevated);border:1px solid var(--border);color:var(--muted);transition:all .25s}
 .hero-social a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-3px)}
 .hero-social svg{width:1.25rem;height:1.25rem}
+.copy-mail{position:relative;width:2.5rem;height:2.5rem;display:grid;place-items:center;border-radius:.75rem;cursor:pointer;
+  background:var(--elevated);border:1px solid var(--border);color:var(--muted);font:inherit;transition:all .25s}
+.copy-mail:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-3px)}
+.copy-tip{position:absolute;bottom:calc(100% + .55rem);left:50%;transform:translateX(-50%) translateY(4px);white-space:nowrap;
+  font-family:Inter,Arial,sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.02em;
+  background:var(--elevated);border:1px solid var(--border);color:var(--text);border-radius:.5rem;padding:.3rem .6rem;
+  opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.copy-mail:hover .copy-tip,.copy-mail.ok .copy-tip{opacity:1;transform:translateX(-50%)}
+.copy-mail.ok{color:var(--accent);border-color:var(--accent)}
 .hero-visual{display:grid;justify-items:center}
 .portrait{position:relative;width:min(22rem,78vw);aspect-ratio:1;border-radius:1rem;padding:.5rem;
   background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow)}
