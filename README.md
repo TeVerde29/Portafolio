@@ -20,12 +20,12 @@ Portafolio personal de una sola página: Ingeniería de Sistemas (IX ciclo, UNU)
 Portafolio/
 ├── index.html   # estructura y contenido (nav, hero, 6 secciones, footer)
 ├── styles.css   # diseño, temas claro/oscuro, responsive
-├── app.js       # partículas, reveals, contadores, scrollspy, tema, formulario
+├── app.js       # partículas, reveals, scrollspy, tema, galería, formulario
 ├── CV/          # CV oficial en .pdf y .docx + plantilla
 └── assets/      # foto de perfil y capturas de proyectos
 ```
 
-El `index.html` contiene todo el contenido; `styles.css` resuelve el tema con variables CSS (`data-theme="dark"|"light"`); `app.js` es un IIFE que inicializa partículas del hero, reveals por `IntersectionObserver`, contadores, scrollspy, menú móvil, interruptor de tema, galería emergente y formulario FormSubmit.
+El `index.html` contiene todo el contenido; `styles.css` resuelve el tema con variables CSS (`data-theme="dark"|"light"`); `app.js` es un IIFE que inicializa partículas del hero, reveals por `IntersectionObserver`, contadores del hero, scrollspy, menú móvil, interruptor de tema, galería emergente y formulario FormSubmit.
 
 ## Primeros pasos
 
@@ -46,12 +46,12 @@ python -m http.server 8080
 
 ## Funciones principales
 
-- Hero con red de partículas con parallax, insignias flotantes y métricas
+- Hero con red de partículas con parallax, insignias flotantes y métricas animadas
 - 6 secciones numeradas (01–06) con reveals escalonados al hacer scroll
 - 3 proyectos con captura principal, formato problema → solución → impacto, enlaces a demo/código y botón **Ver fotos** con galería emergente (10 UNU, 9 RotaStock, 2 asignador)
 - Logos SVG originales de GitHub/LinkedIn/correo en los botones sociales
 - Skills en 6 tarjetas, experiencia en timeline, educación con tarjeta dorada CONEIMERA
-- Tema claro/oscuro persistente, contadores animados, marquesina de stack, formulario con envío real (FormSubmit + respaldo `mailto:`), WhatsApp flotante y volver arriba
+- Tema claro/oscuro persistente, reveals escalonados, partículas con parallax, formulario con envío real (FormSubmit + respaldo `mailto:`), WhatsApp flotante y volver arriba
 
 ## Flujo de desarrollo
 
