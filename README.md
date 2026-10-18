@@ -2,7 +2,7 @@
 
 Portafolio personal de una sola página: Ingeniería de Sistemas (X ciclo, UNU), desarrollo full-stack y QA automation. HTML, CSS y JS puros, sin frameworks ni build.
 
-**En vivo:** https://teverde29.github.io/Portafolio/
+**En vivo:** https://portafolio-pedro-ricra.vercel.app/ · espejo en https://teverde29.github.io/Portafolio/
 
 ## Stack tecnológico
 
@@ -33,20 +33,20 @@ El `index.html` contiene todo el contenido; `styles.css` resuelve el tema con va
 - `styles.css` — tokens de color, componentes (botones, tarjetas, timeline, formulario), responsive en `1020px` y `860px`, `prefers-reduced-motion`
 - `app.js` — verificado con `node --check app.js`
 - `CV/` — `CV - RFPG.pdf` (descarga de los botones del sitio), `.docx` fuente y plantilla
-- `assets/` — `foto.png` (retrato del hero) y 22 capturas reales: `rota-*`, `unu-*`, `logistica-*`, `p-*`
+- `assets/` — `foto.png` (retrato del hero) y 31 capturas reales: `rota-*`, `unu-*`, `logistica-*`, `p-*`, `frejolito-*`, `cvgen-*`
 
 ## Funciones principales
 
 - Hero con red de partículas con parallax, insignias flotantes y métricas animadas
 - 6 secciones numeradas (01–06) con reveals escalonados al hacer scroll
-- 3 proyectos con captura principal, formato problema → solución → impacto, enlaces a demo/código y botón **Ver fotos** con galería emergente (10 UNU, 9 RotaStock, 2 asignador)
+- 5 proyectos con captura principal, formato problema → solución → impacto, enlaces a demo/código y botón **Ver fotos** con galería emergente (10 UNU, 9 RotaStock, 2 asignador, 4 El Frejolito, 5 CV Generador)
 - Logos SVG originales de GitHub/LinkedIn/correo en los botones sociales
 - Skills en 6 tarjetas, experiencia en timeline, educación con tarjeta dorada CONEIMERA
 - Tema claro/oscuro persistente, reveals escalonados, partículas con parallax, formulario con envío real (FormSubmit + respaldo `mailto:`), WhatsApp flotante y volver arriba
 
 ## Flujo de desarrollo
 
-- Rama principal: `main` (despliegue automático en GitHub Pages desde raíz)
+- Rama principal: `main` (sitio estático: Vercel y espejo en GitHub Pages desde raíz)
 - Cambio típico: editar → verificar (`node --check app.js`, abrir `index.html`) → `git add .` → commit → `push`
 - El CV se actualiza reemplazando `CV/CV - RFPG.pdf` con el mismo nombre (los botones no requieren cambios)
 

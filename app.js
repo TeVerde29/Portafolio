@@ -250,6 +250,19 @@
     logistica: [
       ["assets/logistica-claro.png", "Optimización sobre mapa de Pucallpa en tema claro"],
       ["assets/logistica-oscuro.png", "Rutas y utilización por almacén en tema oscuro"]
+    ],
+    frejolito: [
+      ["assets/frejolito-hero.png", "Hero nocturno con la fachada del local en escritorio"],
+      ["assets/frejolito-carta.png", "Carta filtrable con los 21 platos en 6 categorías"],
+      ["assets/frejolito-hero-movil.png", "Hero de El Frejolito en móvil (440 px)"],
+      ["assets/frejolito-carta-movil.png", "Carta en móvil con tabs desplazables"]
+    ],
+    cvgen: [
+      ["assets/cvgen-editor.png", "Editor de datos con los doce bloques y el A4 en vivo"],
+      ["assets/cvgen-diseno.png", "Panel de diseño con las doce plantillas por familia"],
+      ["assets/cvgen-analisis.png", "Analizador de ofertas con nota y términos que faltan"],
+      ["assets/cvgen-exportar.png", "Exportación a Word, PDF y Markdown"],
+      ["assets/cvgen-oscuro.png", "Plantilla Manuscrito con barra lateral y tema oscuro"]
     ]
   };
   var gal = document.getElementById("galeria");
