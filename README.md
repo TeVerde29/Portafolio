@@ -21,7 +21,7 @@ Portafolio/
 ├── index.html   # estructura y contenido (nav, hero, 6 secciones, footer)
 ├── styles.css   # diseño, temas claro/oscuro, responsive
 ├── app.js       # partículas, reveals, scrollspy, tema, galería, formulario
-├── CV/          # CV oficial en .pdf y .docx + plantilla
+├── CV/          # CV oficial en .docx + plantilla
 └── assets/      # foto de perfil y capturas de proyectos
 ```
 
@@ -32,7 +32,7 @@ El `index.html` contiene todo el contenido; `styles.css` resuelve el tema con va
 - `index.html` — nav fijo, hero con canvas, secciones `sobre-mi`, `stack`, `proyectos`, `experiencia`, `educacion`, `contacto`, galería emergente, botones flotantes y footer
 - `styles.css` — tokens de color, componentes (botones, tarjetas, timeline, formulario), responsive en `1020px` y `860px`, `prefers-reduced-motion`
 - `app.js` — verificado con `node --check app.js`
-- `CV/` — `CV - RFPG.pdf` (descarga de los botones del sitio), `.docx` fuente y plantilla
+- `CV/` — `CV - RFPG.docx` (descarga de los botones del sitio) y plantilla
 - `assets/` — `foto.png` (retrato del hero) y 31 capturas reales: `rota-*`, `unu-*`, `logistica-*`, `p-*`, `frejolito-*`, `cvgen-*`
 
 ## Funciones principales
@@ -48,7 +48,7 @@ El `index.html` contiene todo el contenido; `styles.css` resuelve el tema con va
 
 - Rama principal: `main` (sitio estático: Vercel y espejo en GitHub Pages desde raíz)
 - Cambio típico: editar → verificar (`node --check app.js`, abrir `index.html`) → `git add .` → commit → `push`
-- El CV se actualiza reemplazando `CV/CV - RFPG.pdf` con el mismo nombre (los botones no requieren cambios)
+- El CV se actualiza reemplazando `CV/CV - RFPG.docx` con el mismo nombre (los botones no requieren cambios)
 
 ## Estándares de código
 
