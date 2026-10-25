@@ -208,6 +208,9 @@ html[data-theme="dark"] .btn-primary:hover{background:#d4e5bc}
 .edu .pillar-icon{margin-bottom:1rem}
 .edu h3{margin-top:.4rem}
 .edu-gold{border-color:var(--accent)}
+.edu-subhead{margin-top:2.5rem;margin-bottom:1rem}
+.edu-subhead h3{font-size:1.35rem;font-weight:700;margin-top:.25rem}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.25rem}
 
 /* ── Contacto ── */
 .contact-grid{display:grid;grid-template-columns:5fr 7fr;gap:3rem;align-items:start}
@@ -280,7 +283,7 @@ html[data-theme="dark"] .btn-primary:hover{background:#d4e5bc}
   .project,.project.flip .project-body{grid-template-columns:1fr}
   .project.flip .project-body{order:0}
   .skills-grid{grid-template-columns:1fr 1fr}
-  .edu-grid{grid-template-columns:1fr}
+  .edu-grid,.cert-grid{grid-template-columns:1fr}
   .b2{left:-.6rem}
 }
 @media (max-width:860px){

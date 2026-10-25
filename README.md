@@ -1,6 +1,6 @@
 # Portafolio — Pedro Giovanni Ricra Figueroa
 
-Portafolio personal de una sola página: Ingeniería de Sistemas (X ciclo, UNU), desarrollo full-stack y QA automation. HTML, CSS y JS puros, sin frameworks ni build.
+Portafolio personal de una sola página: Ingeniería de Sistemas (VIII ciclo relativo, UNU), desarrollo full-stack y QA automation. HTML, CSS y JS puros, sin frameworks ni build.
 
 **En vivo:** https://portafolio-pedro-ricra.vercel.app/ · espejo en https://teverde29.github.io/Portafolio/
 
@@ -21,8 +21,8 @@ Portafolio/
 ├── index.html   # estructura y contenido (nav, hero, 6 secciones, footer)
 ├── styles.css   # diseño, temas claro/oscuro, responsive
 ├── app.js       # partículas, reveals, scrollspy, tema, galería, formulario
-├── CV/          # CV oficial en .docx + plantilla
-└── assets/      # foto de perfil y capturas de proyectos
+├── CV/          # CV oficial en .pdf y .docx + certificados
+├── assets/      # foto de perfil y capturas de proyectos
 ```
 
 El `index.html` contiene todo el contenido; `styles.css` resuelve el tema con variables CSS (`data-theme="dark"|"light"`); `app.js` es un IIFE que inicializa partículas del hero, reveals por `IntersectionObserver`, contadores del hero, scrollspy, menú móvil, interruptor de tema, galería emergente y formulario FormSubmit.
@@ -32,7 +32,7 @@ El `index.html` contiene todo el contenido; `styles.css` resuelve el tema con va
 - `index.html` — nav fijo, hero con canvas, secciones `sobre-mi`, `stack`, `proyectos`, `experiencia`, `educacion`, `contacto`, galería emergente, botones flotantes y footer
 - `styles.css` — tokens de color, componentes (botones, tarjetas, timeline, formulario), responsive en `1020px` y `860px`, `prefers-reduced-motion`
 - `app.js` — verificado con `node --check app.js`
-- `CV/` — `CV - RFPG.docx` (descarga de los botones del sitio) y plantilla
+- `CV/` — `CV - RFPG.pdf` (descarga oficial en los botones del sitio), `CV - RFPG.docx` y certificados técnicos de acreditación
 - `assets/` — `foto.png` (retrato del hero) y capturas oficiales sincronizadas desde sus repositorios: `rota-*`, `unu-*`, `logistica-*`, `frejolito-*`, `cvgen-*`
 
 ## Funciones principales
