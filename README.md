@@ -33,13 +33,13 @@ El `index.html` contiene todo el contenido; `styles.css` resuelve el tema con va
 - `styles.css` — tokens de color, componentes (botones, tarjetas, timeline, formulario), responsive en `1020px` y `860px`, `prefers-reduced-motion`
 - `app.js` — verificado con `node --check app.js`
 - `CV/` — `CV - RFPG.docx` (descarga de los botones del sitio) y plantilla
-- `assets/` — `foto.png` (retrato del hero) y 31 capturas reales: `rota-*`, `unu-*`, `logistica-*`, `p-*`, `frejolito-*`, `cvgen-*`
+- `assets/` — `foto.png` (retrato del hero) y capturas oficiales sincronizadas desde sus repositorios: `rota-*`, `unu-*`, `logistica-*`, `frejolito-*`, `cvgen-*`
 
 ## Funciones principales
 
 - Hero con red de partículas con parallax, insignias flotantes y métricas animadas
 - 6 secciones numeradas (01–06) con reveals escalonados al hacer scroll
-- 5 proyectos con captura principal, formato problema → solución → impacto, enlaces a demo/código y botón **Ver fotos** con galería emergente (10 UNU, 9 RotaStock, 2 asignador, 4 El Frejolito, 5 CV Generador)
+- 5 proyectos con captura principal, formato problema → solución → impacto, enlaces a demo/código y botón **Ver fotos** con galería emergente (8 UNU, 7 CV Generador, 8 RotaStock, 4 El Frejolito, 2 asignador)
 - Logos SVG originales de GitHub/LinkedIn/correo en los botones sociales
 - Skills en 6 tarjetas, experiencia en timeline, educación con tarjeta dorada CONEIMERA
 - Tema claro/oscuro persistente, reveals escalonados, partículas con parallax, formulario con envío real (FormSubmit + respaldo `mailto:`), WhatsApp flotante y volver arriba

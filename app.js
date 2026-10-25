@@ -225,44 +225,43 @@
   /* ── Galería emergente por proyecto ── */
   var FOTOS = {
     reportes: [
-      ["assets/unu-pendientes-web.png", "Tabla de reportes pendientes del panel trabajador"],
-      ["assets/unu-detalle-web.png", "Detalle de incidencia con evidencia visual"],
-      ["assets/p-reportes.png", "Módulo del estudiante con reportes del campus"],
-      ["assets/unu-login.png", "Inicio de sesión del sistema UNU Incidencias"],
-      ["assets/unu-reportes.png", "Lista de reportes con foto y ubicación"],
-      ["assets/unu-nuevo.png", "Formulario de nuevo reporte con croquis del campus"],
-      ["assets/unu-pendientes.png", "Reportes pendientes por atender"],
-      ["assets/unu-detalle.png", "Detalle y aceptación de un reporte"],
-      ["assets/unu-dashboard.png", "Dashboard con KPIs del campus"],
-      ["assets/unu-distribucion.png", "Distribución por tipo y top de ubicaciones"]
+      ["assets/unu-login.png", "Inicio de sesión del sistema Reportes UNU"],
+      ["assets/unu-inicio-estudiante.png", "Feed de reportes del estudiante con fotos y estado"],
+      ["assets/unu-detalle-reporte.png", "Detalle de incidencia con evidencia visual"],
+      ["assets/unu-aceptados-admin.png", "Panel de administración con reportes aceptados"],
+      ["assets/unu-pendientes-admin-movil.png", "Panel de administración en móvil con reportes pendientes"],
+      ["assets/unu-nuevo-reporte-movil.png", "Formulario móvil para registrar nueva incidencia con croquis"],
+      ["assets/unu-inicio-movil.png", "Vista móvil del feed de incidencias del campus"],
+      ["assets/unu-datos-movil.png", "Perfil y datos del usuario en vista móvil"]
+    ],
+    cvgen: [
+      ["assets/cvgen-portada.png", "Portada de CV Generador con cifras y llamada a la acción"],
+      ["assets/cvgen-editor.png", "Editor de datos con los doce bloques y el A4 en vivo"],
+      ["assets/cvgen-diseno.png", "Panel de diseño con las 16 plantillas agrupadas por familia"],
+      ["assets/cvgen-analisis.png", "Analizador de ofertas con nota y términos que faltan"],
+      ["assets/cvgen-exportar.png", "Exportación a Word, PDF y Markdown"],
+      ["assets/cvgen-json.png", "Importación y exportación completa de datos en formato JSON"],
+      ["assets/cvgen-oscuro.png", "Plantilla Manuscrito con barra lateral y tema oscuro"]
     ],
     rotastock: [
-      ["assets/rota-panel.png", "Panel de control con KPIs y gráficos"],
-      ["assets/rota-productos.png", "Catálogo de productos con semaforización"],
-      ["assets/rota-productos-oscuro.png", "Catálogo en tema oscuro"],
-      ["assets/rota-abc-oscuro.png", "Clasificación ABC/XYZ con curva de importancia"],
-      ["assets/rota-movimientos.png", "Historial de compras y ventas"],
-      ["assets/rota-movimientos-oscuro.png", "Movimientos en tema oscuro"],
-      ["assets/rota-compras.png", "Plan de compras sugerido"],
-      ["assets/rota-conteos.png", "Conteos auditables de almacén"],
-      ["assets/p-rotastock.png", "Vista general del panel de control"]
-    ],
-    logistica: [
-      ["assets/logistica-claro.png", "Optimización sobre mapa de Pucallpa en tema claro"],
-      ["assets/logistica-oscuro.png", "Rutas y utilización por almacén en tema oscuro"]
+      ["assets/rota-panel.png", "Panel de control con KPIs y gráficos de inventario"],
+      ["assets/rota-productos.png", "Catálogo de productos con semaforización de rotación"],
+      ["assets/rota-clasificacion-abc.png", "Clasificación ABC/XYZ con matriz de importancia y variabilidad"],
+      ["assets/rota-movimientos.png", "Historial de compras y ventas valoradas"],
+      ["assets/rota-que-comprar.png", "Plan de compras sugerido con punto de reorden"],
+      ["assets/rota-conteos.png", "Conteos físicos auditables de almacén"],
+      ["assets/rota-copias-seguridad.png", "Gestión y restauración de copias de seguridad"],
+      ["assets/rota-modo-viaje-tiempo.png", "Modo viaje en el tiempo sobre inventarios históricos"]
     ],
     frejolito: [
       ["assets/frejolito-hero.png", "Hero nocturno con la fachada del local en escritorio"],
       ["assets/frejolito-carta.png", "Carta filtrable con los 21 platos en 6 categorías"],
       ["assets/frejolito-hero-movil.png", "Hero de El Frejolito en móvil (440 px)"],
-      ["assets/frejolito-carta-movil.png", "Carta en móvil con tabs desplazables"]
+      ["assets/frejolito-carta-movil.png", "Carta en móvil con tabs desplazables y pedidos por WhatsApp"]
     ],
-    cvgen: [
-      ["assets/cvgen-editor.png", "Editor de datos con los doce bloques y el A4 en vivo"],
-      ["assets/cvgen-diseno.png", "Panel de diseño con las doce plantillas por familia"],
-      ["assets/cvgen-analisis.png", "Analizador de ofertas con nota y términos que faltan"],
-      ["assets/cvgen-exportar.png", "Exportación a Word, PDF y Markdown"],
-      ["assets/cvgen-oscuro.png", "Plantilla Manuscrito con barra lateral y tema oscuro"]
+    logistica: [
+      ["assets/logistica-claro.png", "Optimización sobre mapa de Pucallpa en tema claro con métricas OSRM"],
+      ["assets/logistica-oscuro.png", "Rutas y utilización por almacén en tema oscuro"]
     ]
   };
   var gal = document.getElementById("galeria");
